@@ -99,6 +99,8 @@ namespace Studienarbeit
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.tb_RoomCountPower = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
             btn_ShowRoom = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -132,7 +134,9 @@ namespace Studienarbeit
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.tb_RoomCountPower);
             this.groupBox5.Controls.Add(this.tb_RoomCountLights);
+            this.groupBox5.Controls.Add(this.label37);
             this.groupBox5.Controls.Add(this.label36);
             this.groupBox5.Controls.Add(this.btn_ChooseLights);
             resources.ApplyResources(this.groupBox5, "groupBox5");
@@ -464,6 +468,7 @@ namespace Studienarbeit
             resources.GetString("comboBox1.Items4")});
             resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -545,6 +550,16 @@ namespace Studienarbeit
             resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
+            // 
+            // tb_RoomCountPower
+            // 
+            resources.ApplyResources(this.tb_RoomCountPower, "tb_RoomCountPower");
+            this.tb_RoomCountPower.Name = "tb_RoomCountPower";
+            // 
+            // label37
+            // 
+            resources.ApplyResources(this.label37, "label37");
+            this.label37.Name = "label37";
             // 
             // Form1
             // 
@@ -644,6 +659,8 @@ namespace Studienarbeit
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Button btn_ChooseLights;
         private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox tb_RoomCountPower;
+        private System.Windows.Forms.Label label37;
     }
 }
 

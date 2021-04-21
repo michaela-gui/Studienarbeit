@@ -97,5 +97,74 @@ namespace Studienarbeit
 
             return;
         }
+
+        public int LeuchtdichteBerechnen(double Reflexionswert, int Beleuchtungsstärke)
+        {
+            /* Berechne die mittlere Leuchtdichte im Bereich */
+            int leuchtdichte = Convert.ToInt32((Reflexionswert * Beleuchtungsstärke) / Math.PI);
+            Console.WriteLine(leuchtdichte)
+;
+            return leuchtdichte;
+        }
+
+        public int AnzahlLeuchtenBerechnen(string Lampentyp, int Leuchtdichte, int Lampenhelligkeit)
+        {
+            /* Berechne die Anzahl der Leuchten nach Lampentyp und geforderter Leuchtdichte */
+            int anzahlLeuchten = 0;
+
+            /* 120° Ausstrahlwinkel der Lampe => 3,14m² beleuchten, einfacher Raum ohne Rand: */
+
+            switch (Lampentyp)
+            {
+                case "Glühlampe":
+                    anzahlLeuchten = Leuchtdichte / Lampenhelligkeit; /* Zahl ist Lumen, das eine Lampe erzeugen kann, herstellerabhängig. */
+                    break;
+                case "Halogenglühlampe":
+                    anzahlLeuchten = Leuchtdichte / Lampenhelligkeit; /* Zahl ist Lumen, das eine Lampe erzeugen kann, herstellerabhängig. */
+                    break;
+                case "LED":
+                    anzahlLeuchten = Leuchtdichte / Lampenhelligkeit; /* Zahl ist Lumen, das eine Lampe erzeugen kann, herstellerabhängig. */
+                    break;
+                case "Leuchtstofflampe":
+                    anzahlLeuchten = Leuchtdichte / Lampenhelligkeit; /* Zahl ist Lumen, das eine Lampe erzeugen kann, herstellerabhängig. */
+                    break;
+            }
+            return anzahlLeuchten;
+        }
+
+        public int LeistungAllerLeuchtenBerechnen(string Lampentyp, int Lampenanzahl, int Lampenhelligkeit, int Lampenleistung, int Leuchtdichte)
+        {
+            /* Berechne die Leistung in Watt aller verwendeten Leuchten vom selben Leuchtentyp */
+            int leistungInWatt = AnzahlLeuchtenBerechnen(Lampentyp, Leuchtdichte, Lampenhelligkeit) * Lampenleistung;
+
+            return leistungInWatt;
+        }
+
+        public int LichtausbeuteProLeuchtentypBerechnen(string Lampentyp, int Lampenanzahl, int Lampenhelligkeit, int Lampenleistung)
+        {
+            /* Berechne die Lichtausbeute einer Lampe nach Lampentyp in lm/W */
+            int lichtausbeute = 0;
+
+            switch (Lampentyp)
+            {
+                case "Glühlampe":
+                   lichtausbeute = Lampenhelligkeit / Lampenleistung;
+                    break;
+                case "Halogenglühlampe":
+                    lichtausbeute = Lampenhelligkeit / Lampenleistung;
+                    break;
+                case "LED":
+                    lichtausbeute = Lampenhelligkeit / Lampenleistung;
+                    break;
+                case "Leuchtstofflampe":
+                    lichtausbeute = Lampenhelligkeit / Lampenleistung;
+                    break;
+            }
+
+            lichtausbeute *= Lampenanzahl;
+                
+
+            return lichtausbeute;
+        }
     }
 }
