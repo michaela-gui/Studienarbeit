@@ -84,6 +84,14 @@ namespace Studienarbeit
             return;
         }
 
+        /*
+         * 
+         * 
+         * AB HIER EIGENTLICHE, VERWENDETE FUNKTIONEN
+         * 
+         * 
+         */
+
         public void LichtsystemeBeleuchtungsstärke()
         {
             /* Mittlere Beleuchtungsstärke mit zusätzlichen Lampen */

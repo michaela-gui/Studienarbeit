@@ -37,8 +37,7 @@ namespace Studienarbeit
                 int leistungProLeuchte_Glühlampe = 60; //W
 
                 /* Berechne die Leuchtdichte im Raum */
-                int leuchtdichte = myCalc.LeuchtdichteBerechnen(0.6, 500);
-                Console.WriteLine("Leuchtdichte + " + leuchtdichte);
+                int leuchtdichte = myCalc.LeuchtdichteBerechnen(reflexionOberflächen, gewüschteLichtmengeImRaum);
 
                 /* Rechne Lumen/m² in Lux um */
                 double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * Convert.ToInt32(this.tb_RoomWidth.Text);
@@ -49,12 +48,11 @@ namespace Studienarbeit
 
                 double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
                 int lux = leuchtvermögenProLeuchte / Convert.ToInt32(raumgroesseInm2MitRand);
-                //Console.WriteLine(lux);
 
                 /* Berechne die benötigte Anzahl der Leuchten */
                 int anzahlLeuchten = myCalc.AnzahlLeuchtenBerechnen(lampentyp, gewüschteLichtmengeImRaum, lux);
-                //Console.WriteLine("anzahlLeuchten + " + anzahlLeuchten);
                 this.tb_RoomCountLights.Text = anzahlLeuchten.ToString();
+
                 /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
                 this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, anzahlLeuchten).ToString();
 
