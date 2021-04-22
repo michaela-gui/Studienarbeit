@@ -132,10 +132,10 @@ namespace Studienarbeit
             return anzahlLeuchten;
         }
 
-        public int LeistungAllerLeuchtenBerechnen(string Lampentyp, int Lampenanzahl, int Lampenhelligkeit, int Lampenleistung, int Leuchtdichte)
+        public int LeistungAllerLeuchtenBerechnen(int Lampenleistung, int AnzahlLeuchten)
         {
             /* Berechne die Leistung in Watt aller verwendeten Leuchten vom selben Leuchtentyp */
-            int leistungInWatt = AnzahlLeuchtenBerechnen(Lampentyp, Leuchtdichte, Lampenhelligkeit) * Lampenleistung;
+            int leistungInWatt = AnzahlLeuchten * Lampenleistung;
 
             return leistungInWatt;
         }

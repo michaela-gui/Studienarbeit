@@ -29,22 +29,37 @@ namespace Studienarbeit
             /* Default: Glühlampen verwenden, 12lm/W, Ra 90, 500lx, 0,6 Reflex., 800lm Leuchte, 60W */
             if(this.comboBox1.Text.Equals("Küche"))
             {
+                /* Setze static Parameter */
+                string lampentyp = "Glühlampe";
+                int gewüschteLichtmengeImRaum = 500; //lx
+                double reflexionOberflächen = 0.6;
+                int leuchtvermögenProLeuchte = 800; //lm
+                int leistungProLeuchte_Glühlampe = 60; //W
+
                 /* Berechne die Leuchtdichte im Raum */
                 int leuchtdichte = myCalc.LeuchtdichteBerechnen(0.6, 500);
                 Console.WriteLine("Leuchtdichte + " + leuchtdichte);
 
                 /* Rechne Lumen/m² in Lux um */
-                int raumgroesseInm2 = Convert.ToInt32(this.tb_RoomLength.Text) * Convert.ToInt32(this.tb_RoomWidth.Text);
-                int raumgroesseInm2MitRand = Convert.ToDouble(raumgroesseInm2) - (Convert.ToInt32(this.tb_RoomLength.Text) * 0.3 + Convert.ToInt32(this.tb_RoomWidth.Text) * 0, 3);
-                int lux = 800 / raumgroesseInm2MitRand; /* NOTIZ: 250lm/W ergibt 312lx, ist zu wenig */
-                Console.WriteLine(lux);
+                double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * Convert.ToInt32(this.tb_RoomWidth.Text);
+
+                /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
+                double tempRoomLength = Convert.ToDouble(this.tb_RoomLength.Text); 
+                double tempRoomWidth = Convert.ToDouble(this.tb_RoomWidth.Text);
+
+                double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
+                int lux = leuchtvermögenProLeuchte / Convert.ToInt32(raumgroesseInm2MitRand);
+                //Console.WriteLine(lux);
 
                 /* Berechne die benötigte Anzahl der Leuchten */
-                int anzahlLeuchten = myCalc.AnzahlLeuchtenBerechnen("Glühlampe", 500, lux);
-                Console.WriteLine("anzahlLeuchten + " + anzahlLeuchten);
+                int anzahlLeuchten = myCalc.AnzahlLeuchtenBerechnen(lampentyp, gewüschteLichtmengeImRaum, lux);
+                //Console.WriteLine("anzahlLeuchten + " + anzahlLeuchten);
                 this.tb_RoomCountLights.Text = anzahlLeuchten.ToString();
                 /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
-                this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen("Glühlampe", anzahlLeuchten, 2500, 60, 500).ToString();
+                this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, anzahlLeuchten).ToString();
+
+                /* Setze die "gewünschte Lichtmenge" in der UI */
+                this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
             }
         }
     }
