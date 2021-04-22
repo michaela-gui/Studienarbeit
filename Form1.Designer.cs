@@ -33,7 +33,9 @@ namespace Studienarbeit
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.tb_RoomCountPower = new System.Windows.Forms.TextBox();
             this.tb_RoomCountLights = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.btn_ChooseLights = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -99,8 +101,6 @@ namespace Studienarbeit
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.tb_RoomCountPower = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
             btn_ShowRoom = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -143,10 +143,20 @@ namespace Studienarbeit
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
+            // tb_RoomCountPower
+            // 
+            resources.ApplyResources(this.tb_RoomCountPower, "tb_RoomCountPower");
+            this.tb_RoomCountPower.Name = "tb_RoomCountPower";
+            // 
             // tb_RoomCountLights
             // 
             resources.ApplyResources(this.tb_RoomCountLights, "tb_RoomCountLights");
             this.tb_RoomCountLights.Name = "tb_RoomCountLights";
+            // 
+            // label37
+            // 
+            resources.ApplyResources(this.label37, "label37");
+            this.label37.Name = "label37";
             // 
             // label36
             // 
@@ -550,16 +560,6 @@ namespace Studienarbeit
             resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
-            // 
-            // tb_RoomCountPower
-            // 
-            resources.ApplyResources(this.tb_RoomCountPower, "tb_RoomCountPower");
-            this.tb_RoomCountPower.Name = "tb_RoomCountPower";
-            // 
-            // label37
-            // 
-            resources.ApplyResources(this.label37, "label37");
-            this.label37.Name = "label37";
             // 
             // Form1
             // 
