@@ -20,7 +20,7 @@ namespace Studienarbeit
             int i_Infeldleuchtdichte = 100; /* vorgegebene Infeldleuchtdichte für Bürobeleuchtung nach Erfahrung und Empfehlungen, cd/m² */
             const double d_Pi = 3.14159; /* Pi */
             double d_ReflexionsgradInProzent = 0.4; /* mittlerer Reflexionsgrad des Arbeitsgutes außerhalb eines Bildschirmes */
-            int i_ErgebnisNennbeleuchtungsstärke = Convert.ToInt32((i_Infeldleuchtdichte * d_Pi) /d_ReflexionsgradInProzent);
+            int i_ErgebnisNennbeleuchtungsstärke = Convert.ToInt32((i_Infeldleuchtdichte * d_Pi) / d_ReflexionsgradInProzent);
 
             Console.WriteLine(i_ErgebnisNennbeleuchtungsstärke);
 
@@ -67,9 +67,9 @@ namespace Studienarbeit
             int i_HorizontaleBeleuchtungsstärke = 400; //in Lux, Niedrigwert
 
             d_ReflexionsgradInProzent = (Math.PI * i_Infeldleuchtdichte) / i_HorizontaleBeleuchtungsstärke;
-            
+
             Console.WriteLine(d_ReflexionsgradInProzent);
-            
+
             return;
         }
 
@@ -126,11 +126,12 @@ namespace Studienarbeit
             {
                 case "Glühlampe":
                     anzahlLeuchten = Leuchtdichte / Lampenhelligkeit; /* Zahl ist Lumen, das eine Lampe erzeugen kann, herstellerabhängig. */
-                    break;
-                case "Halogenglühlampe":
-                    anzahlLeuchten = Leuchtdichte / Lampenhelligkeit; /* Zahl ist Lumen, das eine Lampe erzeugen kann, herstellerabhängig. */
+                    
                     break;
                 case "LED":
+                    anzahlLeuchten = Leuchtdichte / Lampenhelligkeit; /* Zahl ist Lumen, das eine Lampe erzeugen kann, herstellerabhängig. */
+                    break;
+                case "Halogenglühlampe":
                     anzahlLeuchten = Leuchtdichte / Lampenhelligkeit; /* Zahl ist Lumen, das eine Lampe erzeugen kann, herstellerabhängig. */
                     break;
                 case "Leuchtstofflampe":
@@ -156,7 +157,7 @@ namespace Studienarbeit
             switch (Lampentyp)
             {
                 case "Glühlampe":
-                   lichtausbeute = Lampenhelligkeit / Lampenleistung;
+                    lichtausbeute = Lampenhelligkeit / Lampenleistung;
                     break;
                 case "Halogenglühlampe":
                     lichtausbeute = Lampenhelligkeit / Lampenleistung;
@@ -170,9 +171,29 @@ namespace Studienarbeit
             }
 
             lichtausbeute *= Lampenanzahl;
-                
+
 
             return lichtausbeute;
         }
+    }
+
+    class Storage
+    {
+        /* Global verwendete Parameter speichern */
+        public Storage()
+        {
+            /**/
+        }
+
+        public static string Leuchtmittel_Typ = "";
+        public static int Leuchtmittel_Farbwiedergabe = 0; // in Ra
+        public static int Leuchtmittel_Watt = 0; // in Watt
+        public static int Leuchtmittel_Nutzlichtstrom = 0; // in Lumen
+        public static int Leuchtmittel_Abstrahlwinkel = 0; // in Grad
+
+        public static int Raum_Küche_Lichtmenge = 300; // in Lux
+        public static int Raum_Arbeitsplatz_Lichtmenge = 500; // in Lux
+        public static int Raum_Arbeitsplatz_direktesLichtmenge = 300; // in Lux
+        public static int Raum_Arbeitsplatz_weiteresUmfeld_Lichtmenge = 150; // in Lux
     }
 }

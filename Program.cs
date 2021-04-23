@@ -25,6 +25,8 @@ namespace Studienarbeit
             myCalc.LeuchtdichteBerechnen(Relexion_Allgemein_Raum, Beleuchtung_Nutzung_Allgemein_Raum_Lux);
             myCalc.LeuchtdichteBerechnen(Reflexion_Küche_Küchenplatte, Beleuchtung_Nutzung_Küche_Arbeitsbereich_Lux);
 
+            Storage myStorage = new Storage();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

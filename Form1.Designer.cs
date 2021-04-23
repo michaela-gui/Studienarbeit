@@ -432,6 +432,7 @@ namespace Studienarbeit
             resources.ApplyResources(this.btn_Calc, "btn_Calc");
             this.btn_Calc.Name = "btn_Calc";
             this.btn_Calc.UseVisualStyleBackColor = true;
+            this.btn_Calc.Click += new System.EventHandler(this.btn_Calc_Click);
             // 
             // groupBox3
             // 

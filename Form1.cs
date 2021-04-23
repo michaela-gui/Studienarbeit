@@ -47,14 +47,32 @@ namespace Studienarbeit
                 double tempRoomWidth = Convert.ToDouble(this.tb_RoomWidth.Text);
 
                 double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
-                int lux = leuchtvermögenProLeuchte / Convert.ToInt32(raumgroesseInm2MitRand);
+                //int lux = leuchtvermögenProLeuchte / Convert.ToInt32(raumgroesseInm2MitRand);
+                int lux = 0;
+
+                if (Storage.Leuchtmittel_Abstrahlwinkel == 360)
+                {
+                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 12.6);
+                }
+
+                if (Storage.Leuchtmittel_Abstrahlwinkel == 120)
+                {
+                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 3.14);
+                }
+                
+                if (Storage.Leuchtmittel_Abstrahlwinkel == 38)
+                {
+                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 1.3);
+                }
 
                 /* Berechne die benötigte Anzahl der Leuchten */
-                int anzahlLeuchten = myCalc.AnzahlLeuchtenBerechnen(lampentyp, gewüschteLichtmengeImRaum, lux);
-                this.tb_RoomCountLights.Text = anzahlLeuchten.ToString();
+                //int anzahlLeuchten = myCalc.AnzahlLeuchtenBerechnen(lampentyp, gewüschteLichtmengeImRaum, lux);
+                //this.tb_RoomCountLights.Text = anzahlLeuchten.ToString();
+                this.tb_RoomCountLights.Text = lux.ToString();
 
                 /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
-                this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, anzahlLeuchten).ToString();
+                //this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, anzahlLeuchten).ToString();
+                this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, lux).ToString();
 
                 /* Setze die "gewünschte Lichtmenge" in der UI */
                 this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
@@ -93,6 +111,11 @@ namespace Studienarbeit
                 /* Setze die "gewünschte Lichtmenge" in der UI */
                 this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
             }
+        }
+
+        private void btn_Calc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
