@@ -467,24 +467,20 @@ namespace Studienarbeit
             if (this.comboBox2.Text == "Längsseite")
             {
                 /* Berechne die maximale Höhe des Fensters */
-                //int maxFensterHoehe = Convert.ToInt32(Convert.ToDouble(this.tb_WindowHeightFromFloorNorth.Text) + Convert.ToDouble(this.tb_RoomWorkingHeight.Text));
                 double windowHeight = Convert.ToDouble(this.tb_WindowHeightFromFloorNorth.Text);
                 double workingHeight = Convert.ToDouble(this.tb_WindowLengthNorth.Text);
                 double maxFensterHoehe = windowHeight + workingHeight;
                 /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
-                //int tiefeRaum = Convert.ToInt32((Math.Sin(30.0) / Math.Sin(90.0))) * maxFensterHoehe;
                 double tiefeRaum = maxFensterHoehe / 2.0;
             }
 
             if (this.comboBox2.Text == "Breitseite")
             {
                 /* Berechne die maximale Höhe des Fensters */
-                //int maxFensterHoehe = Convert.ToInt32(Convert.ToDouble(this.tb_WindowHeightFromFloorNorth.Text) + Convert.ToDouble(this.tb_RoomWorkingHeight.Text));
                 double windowHeight = Convert.ToDouble(this.tb_WindowHeightFromFloorNorth.Text);
                 double workingHeight = Convert.ToDouble(this.tb_WindowLengthNorth.Text);
                 double maxFensterHoehe = windowHeight + workingHeight;
                 /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
-                //int tiefeRaum = Convert.ToInt32((Math.Sin(30.0) / Math.Sin(90.0))) * maxFensterHoehe;
                 double tiefeRaum = maxFensterHoehe / 2.0;
             }
         }
