@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FreeCADGui
 
 namespace Studienarbeit
 {
@@ -108,6 +109,11 @@ namespace Studienarbeit
                 Berechne_Parameter_Fuer_Ausgabe(lampentyp, gewünschteLichtmengeImRaum, reflexionOberflächen, leuchtvermögenProLeuchte, leistungProLeuchte_Glühlampe);
             }
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.AutoScroll = true;
         }
     }
 }

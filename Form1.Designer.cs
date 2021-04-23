@@ -101,6 +101,7 @@ namespace Studienarbeit
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             btn_ShowRoom = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -562,13 +563,20 @@ namespace Studienarbeit
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -662,6 +670,7 @@ namespace Studienarbeit
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox tb_RoomCountPower;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
