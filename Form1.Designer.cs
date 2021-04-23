@@ -102,6 +102,11 @@ namespace Studienarbeit
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             btn_ShowRoom = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -123,6 +128,7 @@ namespace Studienarbeit
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.btn_Calc);
@@ -190,6 +196,7 @@ namespace Studienarbeit
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBox2);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.tb_WindowHeightFromFloorNorth);
             this.tabPage1.Controls.Add(this.label13);
@@ -250,6 +257,7 @@ namespace Studienarbeit
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboBox3);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.tb_WindowHeightFromFloorEast);
             this.tabPage2.Controls.Add(this.label19);
@@ -310,6 +318,7 @@ namespace Studienarbeit
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.comboBox4);
             this.tabPage3.Controls.Add(this.label24);
             this.tabPage3.Controls.Add(this.tb_WindowHeightFromFloorSouth);
             this.tabPage3.Controls.Add(this.label25);
@@ -370,6 +379,7 @@ namespace Studienarbeit
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.comboBox5);
             this.tabPage4.Controls.Add(this.label30);
             this.tabPage4.Controls.Add(this.tb_WindowHeightFromFloorWest);
             this.tabPage4.Controls.Add(this.label31);
@@ -568,6 +578,49 @@ namespace Studienarbeit
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            resources.GetString("comboBox2.Items"),
+            resources.GetString("comboBox2.Items1")});
+            resources.ApplyResources(this.comboBox2, "comboBox2");
+            this.comboBox2.Name = "comboBox2";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            resources.GetString("comboBox3.Items"),
+            resources.GetString("comboBox3.Items1")});
+            resources.ApplyResources(this.comboBox3, "comboBox3");
+            this.comboBox3.Name = "comboBox3";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            resources.GetString("comboBox4.Items"),
+            resources.GetString("comboBox4.Items1")});
+            resources.ApplyResources(this.comboBox4, "comboBox4");
+            this.comboBox4.Name = "comboBox4";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            resources.GetString("comboBox5.Items"),
+            resources.GetString("comboBox5.Items1")});
+            resources.ApplyResources(this.comboBox5, "comboBox5");
+            this.comboBox5.Name = "comboBox5";
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btn_BerechneMitTageslicht_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -671,6 +724,11 @@ namespace Studienarbeit
         private System.Windows.Forms.TextBox tb_RoomCountPower;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Button button1;
     }
 }
 
