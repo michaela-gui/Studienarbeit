@@ -15,6 +15,59 @@ namespace Studienarbeit
         public LampenWahl()
         {
             InitializeComponent();
+            Zeige_Parameter_Auf_Gui2();
+        }
+
+        private void Zeige_Parameter_Auf_Gui2()
+        {
+            switch(Storage.Leuchtmittel_Typ)
+            {
+                case "Glühlampe":
+                    Setze_Parameter_Gluehlampe();
+                    break;
+                case "LED":
+                    Setze_Parameter_LED_Einbaustrahler();
+                    break;
+            }
+            return;
+        }
+
+        private void Setze_Parameter_Gluehlampe()
+        {
+            this.richTextBox1.Text = "Glühlampe Tropfen E27";
+            this.richTextBox2.Text = "2.300 Kelvin";
+            this.richTextBox3.Text = "extra warm weiß";
+            this.richTextBox4.Text = "8 Watt";
+            this.richTextBox5.Text = "Ja";
+            this.richTextBox6.Text = "100 Ra";
+            this.richTextBox7.Text = "Paulmann Licht GmbH";
+            this.richTextBox8.Text = "40 Lumen";
+            this.richTextBox9.Text = "https://de.paulmann.com/";
+            this.richTextBox10.Text = "128.08";
+
+            this.pictureBox1.Image = Image.FromFile("..\\..\\Bilder\\KeinBildVorhanden.png");
+            this.pictureBox2.Image = Image.FromFile("..\\..\\Bilder\\Gluehlampe_Paulmann_E27.jpg");
+            
+            return;
+        }
+
+        private void Setze_Parameter_LED_Einbaustrahler()
+        {
+            this.richTextBox1.Text = "LED Einbau-Deckenleuchte";
+            this.richTextBox2.Text = "3.000 Kelvin";
+            this.richTextBox3.Text = "weiß";
+            this.richTextBox4.Text = "6 Watt";
+            this.richTextBox5.Text = "Keine Angabe";
+            this.richTextBox6.Text = "80 Ra";
+            this.richTextBox7.Text = "Brumberg";
+            this.richTextBox8.Text = "640 Lumen";
+            this.richTextBox9.Text = "https://www.brumberg.com/";
+            this.richTextBox10.Text = "38363023";
+
+            this.pictureBox1.Image = Image.FromFile("..\\..\\Bilder\\Brumberg_Einbau-LED_Strahlweite.png");
+            this.pictureBox2.Image = Image.FromFile("..\\..\\Bilder\\Einbau-LED_Brumberg_VG.jpg");
+
+            return;
         }
 
         private void cb_Waehle_Leuchte_SelectedIndexChanged(object sender, EventArgs e)
@@ -22,37 +75,13 @@ namespace Studienarbeit
             if(comboBox1.Text == "Glühlampe E27")
             {
                 /* Zeige Parameter auf Gui2 */
-                this.richTextBox1.Text = "Glühlampe Tropfen E27";
-                this.richTextBox2.Text = "2.300 Kelvin";
-                this.richTextBox3.Text = "extra warm weiß";
-                this.richTextBox4.Text = "8 Watt";
-                this.richTextBox5.Text = "Ja";
-                this.richTextBox6.Text = "100 Ra";
-                this.richTextBox7.Text = "Paulmann Licht GmbH";
-                this.richTextBox8.Text = "40 Lumen";
-                this.richTextBox9.Text = "https://de.paulmann.com/";
-                this.richTextBox10.Text = "128.08";
-
-                this.pictureBox1.Image = Image.FromFile("..\\..\\Bilder\\KeinBildVorhanden.png");
-                this.pictureBox2.Image = Image.FromFile("..\\..\\Bilder\\Gluehlampe_Paulmann_E27.jpg");
+                Setze_Parameter_Gluehlampe();
             }
 
             if (comboBox1.Text == "LED Einbaustrahler")
             {
                 /* Zeige Parameter auf Gui2 */
-                this.richTextBox1.Text = "LED Einbau-Deckenleuchte";
-                this.richTextBox2.Text = "3.000 Kelvin";
-                this.richTextBox3.Text = "weiß";
-                this.richTextBox4.Text = "6 Watt";
-                this.richTextBox5.Text = "Keine Angabe";
-                this.richTextBox6.Text = "80 Ra";
-                this.richTextBox7.Text = "Brumberg";
-                this.richTextBox8.Text = "640 Lumen";
-                this.richTextBox9.Text = "https://www.brumberg.com/";
-                this.richTextBox10.Text = "38363023";
-
-                this.pictureBox1.Image = Image.FromFile("..\\..\\Bilder\\Brumberg_Einbau-LED_Strahlweite.png");
-                this.pictureBox2.Image = Image.FromFile("..\\..\\Bilder\\Einbau-LED_Brumberg_VG.jpg");
+                Setze_Parameter_LED_Einbaustrahler();
             }
         }
 

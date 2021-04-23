@@ -168,7 +168,7 @@ namespace Studienarbeit
             resources.ApplyResources(this.btn_ChooseLights, "btn_ChooseLights");
             this.btn_ChooseLights.Name = "btn_ChooseLights";
             this.btn_ChooseLights.UseVisualStyleBackColor = true;
-            this.btn_ChooseLights.Click += new System.EventHandler(this.button3_Click);
+            this.btn_ChooseLights.Click += new System.EventHandler(this.btn_WaehleLeuchten_Click);
             // 
             // groupBox4
             // 
