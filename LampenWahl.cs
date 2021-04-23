@@ -76,6 +76,8 @@ namespace Studienarbeit
                 Storage.Leuchtmittel_Nutzlichtstrom = 640;
                 Storage.Leuchtmittel_Abstrahlwinkel = 38;
             }
+
+            this.Close();
         }
 
         private void btn_Abbrechen_Click(object sender, EventArgs e)

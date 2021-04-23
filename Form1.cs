@@ -22,6 +22,22 @@ namespace Studienarbeit
             Form mySubForm = new LampenWahl();
             mySubForm.ShowDialog();
         }
+        
+        private double Berechne_Leuchtdichte_Im_Raum(Calculation myCalc, double reflexionOberflächen, int gewünschteLichtmengeImRaum)
+        {
+            int leuchtdichte = myCalc.LeuchtdichteBerechnen(reflexionOberflächen, gewünschteLichtmengeImRaum);
+
+            /* Rechne Lumen/m² in Lux um */
+            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * Convert.ToInt32(this.tb_RoomWidth.Text);
+
+            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
+            double tempRoomLength = Convert.ToDouble(this.tb_RoomLength.Text);
+            double tempRoomWidth = Convert.ToDouble(this.tb_RoomWidth.Text);
+
+            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
+
+            return raumgroesseInm2MitRand;
+        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -31,22 +47,14 @@ namespace Studienarbeit
             {
                 /* Setze static Parameter */
                 string lampentyp = "Glühlampe";
-                int gewüschteLichtmengeImRaum = 500; //lx
+                int gewünschteLichtmengeImRaum = 500; //lx
                 double reflexionOberflächen = 0.6;
                 int leuchtvermögenProLeuchte = 800; //lm
                 int leistungProLeuchte_Glühlampe = 60; //W
 
                 /* Berechne die Leuchtdichte im Raum */
-                int leuchtdichte = myCalc.LeuchtdichteBerechnen(reflexionOberflächen, gewüschteLichtmengeImRaum);
+                double raumgroesseInm2MitRand = Berechne_Leuchtdichte_Im_Raum(myCalc, reflexionOberflächen, gewünschteLichtmengeImRaum);
 
-                /* Rechne Lumen/m² in Lux um */
-                double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * Convert.ToInt32(this.tb_RoomWidth.Text);
-
-                /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
-                double tempRoomLength = Convert.ToDouble(this.tb_RoomLength.Text); 
-                double tempRoomWidth = Convert.ToDouble(this.tb_RoomWidth.Text);
-
-                double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
                 //int lux = leuchtvermögenProLeuchte / Convert.ToInt32(raumgroesseInm2MitRand);
                 int lux = 0;
 
@@ -83,26 +91,44 @@ namespace Studienarbeit
             {
                 /* Setze static Parameter */
                 string lampentyp = "Glühlampe";
-                int gewüschteLichtmengeImRaum = 500; //lx
+                int gewünschteLichtmengeImRaum = 500; //lx
                 double reflexionOberflächen = 0.6;
                 int leuchtvermögenProLeuchte = 800; //lm
                 int leistungProLeuchte_Glühlampe = 60; //W
 
                 /* Berechne die Leuchtdichte im Raum */
-                int leuchtdichte = myCalc.LeuchtdichteBerechnen(reflexionOberflächen, gewüschteLichtmengeImRaum);
+                double raumgroesseInm2MitRand = Berechne_Leuchtdichte_Im_Raum(myCalc, reflexionOberflächen, gewünschteLichtmengeImRaum);
+                //int leuchtdichte = myCalc.LeuchtdichteBerechnen(reflexionOberflächen, gewüschteLichtmengeImRaum);
+                //
+                ///* Rechne Lumen/m² in Lux um */
+                //double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * Convert.ToInt32(this.tb_RoomWidth.Text);
+                //
+                ///* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
+                //double tempRoomLength = Convert.ToDouble(this.tb_RoomLength.Text);
+                //double tempRoomWidth = Convert.ToDouble(this.tb_RoomWidth.Text);
+                //
+                //double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
+                //int lux = leuchtvermögenProLeuchte / Convert.ToInt32(raumgroesseInm2MitRand);
 
-                /* Rechne Lumen/m² in Lux um */
-                double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * Convert.ToInt32(this.tb_RoomWidth.Text);
+                int lux = 0;
 
-                /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
-                double tempRoomLength = Convert.ToDouble(this.tb_RoomLength.Text);
-                double tempRoomWidth = Convert.ToDouble(this.tb_RoomWidth.Text);
+                if (Storage.Leuchtmittel_Abstrahlwinkel == 360)
+                {
+                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 12.6);
+                }
 
-                double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
-                int lux = leuchtvermögenProLeuchte / Convert.ToInt32(raumgroesseInm2MitRand);
+                if (Storage.Leuchtmittel_Abstrahlwinkel == 120)
+                {
+                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 3.14);
+                }
+
+                if (Storage.Leuchtmittel_Abstrahlwinkel == 38)
+                {
+                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 1.3);
+                }
 
                 /* Berechne die benötigte Anzahl der Leuchten */
-                int anzahlLeuchten = myCalc.AnzahlLeuchtenBerechnen(lampentyp, gewüschteLichtmengeImRaum, lux);
+                int anzahlLeuchten = myCalc.AnzahlLeuchtenBerechnen(lampentyp, gewünschteLichtmengeImRaum, lux);
                 this.tb_RoomCountLights.Text = anzahlLeuchten.ToString();
 
                 /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
