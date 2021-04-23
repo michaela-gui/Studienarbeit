@@ -228,11 +228,45 @@ namespace Studienarbeit
                         {
                             /* Nach 5 Meter */
                             int E_innen_5Meter = Convert.ToInt32((lux_Nord * 1.8) / 100);
+                            /* Berechne Anzahl notwendiger Lichter für Raum */
+
+                            //1. Berechne neues "Rechteck" für Lichtberechnung
+                            int newRoomLength = Convert.ToInt32(this.tb_RoomLength.Text) - 4;
+
+                            /* Rechne Lumen/m² in Lux um */
+                            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * newRoomLength;
+
+                            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
+                            double tempRoomLength = Convert.ToDouble(this.tb_RoomWidth.Text);
+                            double tempRoomWidth = newRoomLength;
+
+                            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
+
+
+                            //2. Berechne Anzahl Lichter
+                            Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
                         }
                         if (localLength == tempLocalLength - 6)
                         {
                             /* Nach 6 Meter */
                             int E_innen_6Meter = Convert.ToInt32((lux_Nord * 1.3) / 100);
+                            /* Berechne Anzahl notwendiger Lichter für Raum */
+
+                            //1. Berechne neues "Rechteck" für Lichtberechnung
+                            int newRoomLength = Convert.ToInt32(this.tb_RoomLength.Text) - 4;
+
+                            /* Rechne Lumen/m² in Lux um */
+                            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * newRoomLength;
+
+                            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
+                            double tempRoomLength = Convert.ToDouble(this.tb_RoomWidth.Text);
+                            double tempRoomWidth = newRoomLength;
+
+                            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
+
+
+                            //2. Berechne Anzahl Lichter
+                            Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
                         }
                         localLength -= 1;
                     }
@@ -275,7 +309,6 @@ namespace Studienarbeit
                         {
                             /* Nach 5 Meter */ /* Tageslicht reicht unter 2% nicht aus */
                             int E_innen_5Meter = Convert.ToInt32((lux_Nord * 1.8) / 100);
-                            Console.WriteLine("E_innen_5Meter " + E_innen_5Meter);
                             /* Berechne Anzahl notwendiger Lichter für Raum */
                             
                             //1. Berechne neues "Rechteck" für Lichtberechnung
