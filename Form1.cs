@@ -443,30 +443,47 @@ namespace Studienarbeit
             /* Berechne Tageslicht-Quotient des Raumes */
             Berechne_Fenster();
 
+            //BerechneRaumTiefeFuerTageslicht();
+
             return;
+        }
+
+        private double Berechne_LichtTiefe_im_Raum(TextBox WindowHeightFromFloor)
+        {
+            /* Berechne die maximale Höhe des Fensters */
+            double windowHeight = Convert.ToDouble(WindowHeightFromFloor.Text);
+            double workingHeight = Convert.ToDouble(this.tb_WindowLengthNorth.Text);
+            double maxFensterHoehe = windowHeight + workingHeight;
+            /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
+            double tiefeRaum = maxFensterHoehe / 2.0;
+
+            return tiefeRaum;
         }
 
         private void BerechneRaumTiefeFuerTageslicht()
         {
             /* Für die Nordseite */
-            if (this.comboBox2.Text == "Längsseite")
+            if ((this.comboBox2.Text == "Längsseite") || (this.comboBox2.Text == "Breitseite"))
             {
-                /* Berechne die maximale Höhe des Fensters */
-                double windowHeight = Convert.ToDouble(this.tb_WindowHeightFromFloorNorth.Text);
-                double workingHeight = Convert.ToDouble(this.tb_WindowLengthNorth.Text);
-                double maxFensterHoehe = windowHeight + workingHeight;
-                /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
-                double tiefeRaum = maxFensterHoehe / 2.0;
+                Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
             }
 
-            if (this.comboBox2.Text == "Breitseite")
+            /* Für die Ostseite */
+            if ((this.comboBox3.Text == "Längsseite") || (this.comboBox3.Text == "Breitseite"))
             {
-                /* Berechne die maximale Höhe des Fensters */
-                double windowHeight = Convert.ToDouble(this.tb_WindowHeightFromFloorNorth.Text);
-                double workingHeight = Convert.ToDouble(this.tb_WindowLengthNorth.Text);
-                double maxFensterHoehe = windowHeight + workingHeight;
-                /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
-                double tiefeRaum = maxFensterHoehe / 2.0;
+                Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
+            }
+
+            /* Für die Südseite */
+            if ((this.comboBox4.Text == "Längsseite") || (this.comboBox4.Text == "Breitseite"))
+            {
+                Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
+            }            
+            
+            /* Für die Westseite */
+            if ((this.comboBox5.Text == "Längsseite") || (this.comboBox5.Text == "Breitseite"))
+            {
+                Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
             }
         }
     }
