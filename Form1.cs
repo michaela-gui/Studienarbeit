@@ -23,7 +23,7 @@ namespace Studienarbeit
             Form mySubForm = new LampenWahl();
             mySubForm.ShowDialog();
         }
-        
+
         private double Berechne_Leuchtdichte_Im_Raum(Calculation myCalc, double reflexionOberflächen, int gewünschteLichtmengeImRaum)
         {
             int leuchtdichte = myCalc.LeuchtdichteBerechnen(reflexionOberflächen, gewünschteLichtmengeImRaum);
@@ -246,7 +246,7 @@ namespace Studienarbeit
         private void Berechne_Fenster()
         {
             int seite = 0;
-            switch(Storage.FensterSeiteNorden)
+            switch (Storage.FensterSeiteNorden)
             {
                 case "Längsseite": /* Fenster Norden ist auf der Längsseite des Raumes */
                     seite = 1;
@@ -262,7 +262,7 @@ namespace Studienarbeit
                 /* Feste Annahme: Nordseite durchschnittlich 20.000 Lux */
                 int lux_Nord = 10000; // E(h) außen
 
-                if(Storage.FensterSeiteNorden == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                if (Storage.FensterSeiteNorden == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
                 {
                     /* Maße der Längsseite verwenden */
                     int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
@@ -474,13 +474,13 @@ namespace Studienarbeit
             //    return;
             //}
 
-            if((Storage.Fenster_Anzahl_Nord != 0) || (Storage.Fenster_Anzahl_Ost != 0) || (Storage.Fenster_Anzahl_Sued != 0) || (Storage.Fenster_Anzahl_West != 0))
+            if ((Storage.Fenster_Anzahl_Nord != 0) || (Storage.Fenster_Anzahl_Ost != 0) || (Storage.Fenster_Anzahl_Sued != 0) || (Storage.Fenster_Anzahl_West != 0))
             {
                 /* Berechne Tageslicht-Quotient des Raumes */
                 Berechne_Fenster();
             }
 
-            
+
             //Berechne_Fenster();
 
             //BerechneRaumTiefeFuerTageslicht();
@@ -502,7 +502,7 @@ namespace Studienarbeit
 
         private void BerechneRaumTiefeFuesTageslicht_Version2()
         {
-            if(Storage.Fenster_Laenge_Nord != 0)
+            if (Storage.Fenster_Laenge_Nord != 0)
             {
                 Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Nord);
             }
@@ -522,41 +522,42 @@ namespace Studienarbeit
             return;
         }
 
-        //private void BerechneRaumTiefeFuerTageslicht()
-        //{
-        //    /* Für die Nordseite */
-        //    if ((this.comboBox2.Text == "Längsseite") || (this.comboBox2.Text == "Breitseite"))
-        //    {
-        //        Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
-        //    }
-        //
-        //    /* Für die Ostseite */
-        //    if ((this.comboBox3.Text == "Längsseite") || (this.comboBox3.Text == "Breitseite"))
-        //    {
-        //        Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
-        //    }
-        //
-        //    /* Für die Südseite */
-        //    if ((this.comboBox4.Text == "Längsseite") || (this.comboBox4.Text == "Breitseite"))
-        //    {
-        //        Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
-        //    }            
-        //    
-        //    /* Für die Westseite */
-        //    if ((this.comboBox5.Text == "Längsseite") || (this.comboBox5.Text == "Breitseite"))
-        //    {
-        //        Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
-        //    }
-        //}
+        private void BerechneRaumTiefeFuerTageslicht()
+        {
+            /* Für die Nordseite */
+            if ((this.comboBox2.Text == "Längsseite") || (this.comboBox2.Text == "Breitseite"))
+            {
+                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Nord);
+            }
+
+            /* Für die Ostseite */
+            if ((this.comboBox3.Text == "Längsseite") || (this.comboBox3.Text == "Breitseite"))
+            {
+                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Ost);
+            }
+
+            /* Für die Südseite */
+            if ((this.comboBox4.Text == "Längsseite") || (this.comboBox4.Text == "Breitseite"))
+            {
+                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Sued);
+            }
+
+            /* Für die Westseite */
+            if ((this.comboBox5.Text == "Längsseite") || (this.comboBox5.Text == "Breitseite"))
+            {
+                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_West);
+            }
+        }
 
         private void btn_ShowRoom_Click(object sender, EventArgs e)
         {
             this.pictureBox1.Image = Image.FromFile("..\\..\\Bilder\\AnsichtRaum_Küche.png");
+            //Ist_Raum_Goesser_als_Fensterhoehe();
         }
 
         private void btn_WähleFenster_Click(object sender, EventArgs e)
         {
-            Teile_Raum_In_Recktecke_Von_1Meter();
+            
             Form form = new Fenster();
             form.ShowDialog();
         }
@@ -752,6 +753,54 @@ namespace Studienarbeit
             localStorage -= localStorage2;
 
             Console.WriteLine("localstorage " + localStorage);
+        }
+
+        private void Ist_Raum_Goesser_als_Fensterhoehe()
+        {
+            int raumgroesse = 0;
+            int raumlaenge = 0;
+            int raumbreite = 0;
+
+            /* neue Raumbreite berechnen, wenn Raum größer als 4 Meter ist */
+            if (Storage.FensterSeiteNorden == "Längsseite")
+            {
+                /* Länge abziehen */
+                if (Convert.ToInt32(this.tb_RoomLength.Text) > 4)
+                {
+                    raumlaenge = Convert.ToInt32(this.tb_RoomLength.Text) - 4;
+                    raumbreite = Convert.ToInt32(this.tb_RoomWidth.Text);
+                    raumgroesse = raumlaenge * raumbreite;
+                }
+                //if (Storage.Fenster_Laenge_Sued > 4)
+                //{
+                //    int local = raumlaenge;
+                //    raumgroesse -= local * Convert.ToInt32(this.tb_RoomWidth.Text);
+                //}
+                if (Convert.ToInt32(this.tb_RoomLength.Text) > 4)
+                {
+                    if((Convert.ToInt32(this.tb_RoomWidth.Text) - 4) <= raumbreite)
+                    {
+                        int local = (Convert.ToInt32(this.tb_RoomWidth.Text) - 4);
+                        raumgroesse -= local * Convert.ToInt32(this.tb_RoomLength.Text);
+                    }
+                    else
+                    {
+                        int local = raumbreite;
+                        raumgroesse -= local * Convert.ToInt32(this.tb_RoomLength.Text);
+                    }
+                }
+            }
+
+            if (Storage.FensterSeiteNorden == "Breitseite")
+            {
+                /* Breite abziehen */
+                if (Storage.Fenster_Breite_Nord > 4)
+                {
+                    raumgroesse = Convert.ToInt32(this.tb_RoomWidth.Text) - 4;
+                    raumgroesse *= Convert.ToInt32(this.tb_RoomLength.Text);
+                }
+            }
+            Console.WriteLine(raumgroesse);
         }
     }
 }
