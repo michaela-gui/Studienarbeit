@@ -58,68 +58,68 @@ namespace Studienarbeit
             this.tb_RoomLength = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tb_WindowHeightFromFloorNorth = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tb_WindowWidthNorth = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tb_WindowLengthNorth = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tb_WindowHeightFromFloorEast = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.tb_WindowWidthEast = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tb_WindowLengthEast = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.tb_WindowHeightFromFloorSouth = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.tb_WindowWidthSouth = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.tb_WindowLengthSouth = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.tb_WindowHeightFromFloorWest = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.tb_WindowWidthWest = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.tb_WindowLengthWest = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.tb_WindowLengthWest = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.tb_WindowWidthWest = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tb_WindowHeightFromFloorWest = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tb_WindowLengthSouth = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tb_WindowWidthSouth = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.tb_WindowHeightFromFloorSouth = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tb_WindowLengthEast = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tb_WindowWidthEast = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tb_WindowHeightFromFloorEast = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tb_WindowLengthNorth = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tb_WindowWidthNorth = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tb_WindowHeightFromFloorNorth = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             btn_ShowRoom = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_ShowRoom
@@ -247,10 +247,7 @@ namespace Studienarbeit
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             resources.GetString("comboBox1.Items"),
-            resources.GetString("comboBox1.Items1"),
-            resources.GetString("comboBox1.Items2"),
-            resources.GetString("comboBox1.Items3"),
-            resources.GetString("comboBox1.Items4")});
+            resources.GetString("comboBox1.Items1")});
             resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -312,302 +309,6 @@ namespace Studienarbeit
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            resources.ApplyResources(this.tabControl1, "tabControl1");
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.tb_WindowHeightFromFloorNorth);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.tb_WindowWidthNorth);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.tb_WindowLengthNorth);
-            this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.label38);
-            this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.label17);
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            resources.GetString("comboBox2.Items"),
-            resources.GetString("comboBox2.Items1")});
-            resources.ApplyResources(this.comboBox2, "comboBox2");
-            this.comboBox2.Name = "comboBox2";
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
-            // 
-            // tb_WindowHeightFromFloorNorth
-            // 
-            resources.ApplyResources(this.tb_WindowHeightFromFloorNorth, "tb_WindowHeightFromFloorNorth");
-            this.tb_WindowHeightFromFloorNorth.Name = "tb_WindowHeightFromFloorNorth";
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Name = "label13";
-            // 
-            // tb_WindowWidthNorth
-            // 
-            resources.ApplyResources(this.tb_WindowWidthNorth, "tb_WindowWidthNorth");
-            this.tb_WindowWidthNorth.Name = "tb_WindowWidthNorth";
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.Name = "label14";
-            // 
-            // tb_WindowLengthNorth
-            // 
-            resources.ApplyResources(this.tb_WindowLengthNorth, "tb_WindowLengthNorth");
-            this.tb_WindowLengthNorth.Name = "tb_WindowLengthNorth";
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // label38
-            // 
-            resources.ApplyResources(this.label38, "label38");
-            this.label38.Name = "label38";
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            // 
-            // label17
-            // 
-            resources.ApplyResources(this.label17, "label17");
-            this.label17.Name = "label17";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.comboBox3);
-            this.tabPage2.Controls.Add(this.label18);
-            this.tabPage2.Controls.Add(this.tb_WindowHeightFromFloorEast);
-            this.tabPage2.Controls.Add(this.label19);
-            this.tabPage2.Controls.Add(this.tb_WindowWidthEast);
-            this.tabPage2.Controls.Add(this.label20);
-            this.tabPage2.Controls.Add(this.tb_WindowLengthEast);
-            this.tabPage2.Controls.Add(this.label21);
-            this.tabPage2.Controls.Add(this.label22);
-            this.tabPage2.Controls.Add(this.label23);
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            resources.GetString("comboBox3.Items"),
-            resources.GetString("comboBox3.Items1")});
-            resources.ApplyResources(this.comboBox3, "comboBox3");
-            this.comboBox3.Name = "comboBox3";
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            // 
-            // tb_WindowHeightFromFloorEast
-            // 
-            resources.ApplyResources(this.tb_WindowHeightFromFloorEast, "tb_WindowHeightFromFloorEast");
-            this.tb_WindowHeightFromFloorEast.Name = "tb_WindowHeightFromFloorEast";
-            // 
-            // label19
-            // 
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.Name = "label19";
-            // 
-            // tb_WindowWidthEast
-            // 
-            resources.ApplyResources(this.tb_WindowWidthEast, "tb_WindowWidthEast");
-            this.tb_WindowWidthEast.Name = "tb_WindowWidthEast";
-            // 
-            // label20
-            // 
-            resources.ApplyResources(this.label20, "label20");
-            this.label20.Name = "label20";
-            // 
-            // tb_WindowLengthEast
-            // 
-            resources.ApplyResources(this.tb_WindowLengthEast, "tb_WindowLengthEast");
-            this.tb_WindowLengthEast.Name = "tb_WindowLengthEast";
-            // 
-            // label21
-            // 
-            resources.ApplyResources(this.label21, "label21");
-            this.label21.Name = "label21";
-            // 
-            // label22
-            // 
-            resources.ApplyResources(this.label22, "label22");
-            this.label22.Name = "label22";
-            // 
-            // label23
-            // 
-            resources.ApplyResources(this.label23, "label23");
-            this.label23.Name = "label23";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.comboBox4);
-            this.tabPage3.Controls.Add(this.label24);
-            this.tabPage3.Controls.Add(this.tb_WindowHeightFromFloorSouth);
-            this.tabPage3.Controls.Add(this.label25);
-            this.tabPage3.Controls.Add(this.tb_WindowWidthSouth);
-            this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Controls.Add(this.tb_WindowLengthSouth);
-            this.tabPage3.Controls.Add(this.label27);
-            this.tabPage3.Controls.Add(this.label28);
-            this.tabPage3.Controls.Add(this.label29);
-            resources.ApplyResources(this.tabPage3, "tabPage3");
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            resources.GetString("comboBox4.Items"),
-            resources.GetString("comboBox4.Items1")});
-            resources.ApplyResources(this.comboBox4, "comboBox4");
-            this.comboBox4.Name = "comboBox4";
-            // 
-            // label24
-            // 
-            resources.ApplyResources(this.label24, "label24");
-            this.label24.Name = "label24";
-            // 
-            // tb_WindowHeightFromFloorSouth
-            // 
-            resources.ApplyResources(this.tb_WindowHeightFromFloorSouth, "tb_WindowHeightFromFloorSouth");
-            this.tb_WindowHeightFromFloorSouth.Name = "tb_WindowHeightFromFloorSouth";
-            // 
-            // label25
-            // 
-            resources.ApplyResources(this.label25, "label25");
-            this.label25.Name = "label25";
-            // 
-            // tb_WindowWidthSouth
-            // 
-            resources.ApplyResources(this.tb_WindowWidthSouth, "tb_WindowWidthSouth");
-            this.tb_WindowWidthSouth.Name = "tb_WindowWidthSouth";
-            // 
-            // label26
-            // 
-            resources.ApplyResources(this.label26, "label26");
-            this.label26.Name = "label26";
-            // 
-            // tb_WindowLengthSouth
-            // 
-            resources.ApplyResources(this.tb_WindowLengthSouth, "tb_WindowLengthSouth");
-            this.tb_WindowLengthSouth.Name = "tb_WindowLengthSouth";
-            // 
-            // label27
-            // 
-            resources.ApplyResources(this.label27, "label27");
-            this.label27.Name = "label27";
-            // 
-            // label28
-            // 
-            resources.ApplyResources(this.label28, "label28");
-            this.label28.Name = "label28";
-            // 
-            // label29
-            // 
-            resources.ApplyResources(this.label29, "label29");
-            this.label29.Name = "label29";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.comboBox5);
-            this.tabPage4.Controls.Add(this.label30);
-            this.tabPage4.Controls.Add(this.tb_WindowHeightFromFloorWest);
-            this.tabPage4.Controls.Add(this.label31);
-            this.tabPage4.Controls.Add(this.tb_WindowWidthWest);
-            this.tabPage4.Controls.Add(this.label32);
-            this.tabPage4.Controls.Add(this.tb_WindowLengthWest);
-            this.tabPage4.Controls.Add(this.label33);
-            this.tabPage4.Controls.Add(this.label34);
-            this.tabPage4.Controls.Add(this.label35);
-            resources.ApplyResources(this.tabPage4, "tabPage4");
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            resources.GetString("comboBox5.Items"),
-            resources.GetString("comboBox5.Items1")});
-            resources.ApplyResources(this.comboBox5, "comboBox5");
-            this.comboBox5.Name = "comboBox5";
-            // 
-            // label30
-            // 
-            resources.ApplyResources(this.label30, "label30");
-            this.label30.Name = "label30";
-            // 
-            // tb_WindowHeightFromFloorWest
-            // 
-            resources.ApplyResources(this.tb_WindowHeightFromFloorWest, "tb_WindowHeightFromFloorWest");
-            this.tb_WindowHeightFromFloorWest.Name = "tb_WindowHeightFromFloorWest";
-            // 
-            // label31
-            // 
-            resources.ApplyResources(this.label31, "label31");
-            this.label31.Name = "label31";
-            // 
-            // tb_WindowWidthWest
-            // 
-            resources.ApplyResources(this.tb_WindowWidthWest, "tb_WindowWidthWest");
-            this.tb_WindowWidthWest.Name = "tb_WindowWidthWest";
-            // 
-            // label32
-            // 
-            resources.ApplyResources(this.label32, "label32");
-            this.label32.Name = "label32";
-            // 
-            // tb_WindowLengthWest
-            // 
-            resources.ApplyResources(this.tb_WindowLengthWest, "tb_WindowLengthWest");
-            this.tb_WindowLengthWest.Name = "tb_WindowLengthWest";
-            // 
-            // label33
-            // 
-            resources.ApplyResources(this.label33, "label33");
-            this.label33.Name = "label33";
-            // 
-            // label34
-            // 
-            resources.ApplyResources(this.label34, "label34");
-            this.label34.Name = "label34";
-            // 
-            // label35
-            // 
-            resources.ApplyResources(this.label35, "label35");
-            this.label35.Name = "label35";
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.pictureBox1);
@@ -625,6 +326,302 @@ namespace Studienarbeit
             // 
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.comboBox5);
+            this.tabPage4.Controls.Add(this.label30);
+            this.tabPage4.Controls.Add(this.tb_WindowHeightFromFloorWest);
+            this.tabPage4.Controls.Add(this.tb_WindowWidthWest);
+            this.tabPage4.Controls.Add(this.tb_WindowLengthWest);
+            this.tabPage4.Controls.Add(this.label31);
+            this.tabPage4.Controls.Add(this.label32);
+            this.tabPage4.Controls.Add(this.label33);
+            this.tabPage4.Controls.Add(this.label34);
+            this.tabPage4.Controls.Add(this.label35);
+            resources.ApplyResources(this.tabPage4, "tabPage4");
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            resources.ApplyResources(this.label35, "label35");
+            this.label35.Name = "label35";
+            // 
+            // label34
+            // 
+            resources.ApplyResources(this.label34, "label34");
+            this.label34.Name = "label34";
+            // 
+            // label33
+            // 
+            resources.ApplyResources(this.label33, "label33");
+            this.label33.Name = "label33";
+            // 
+            // tb_WindowLengthWest
+            // 
+            resources.ApplyResources(this.tb_WindowLengthWest, "tb_WindowLengthWest");
+            this.tb_WindowLengthWest.Name = "tb_WindowLengthWest";
+            // 
+            // label32
+            // 
+            resources.ApplyResources(this.label32, "label32");
+            this.label32.Name = "label32";
+            // 
+            // tb_WindowWidthWest
+            // 
+            resources.ApplyResources(this.tb_WindowWidthWest, "tb_WindowWidthWest");
+            this.tb_WindowWidthWest.Name = "tb_WindowWidthWest";
+            // 
+            // label31
+            // 
+            resources.ApplyResources(this.label31, "label31");
+            this.label31.Name = "label31";
+            // 
+            // tb_WindowHeightFromFloorWest
+            // 
+            resources.ApplyResources(this.tb_WindowHeightFromFloorWest, "tb_WindowHeightFromFloorWest");
+            this.tb_WindowHeightFromFloorWest.Name = "tb_WindowHeightFromFloorWest";
+            // 
+            // label30
+            // 
+            resources.ApplyResources(this.label30, "label30");
+            this.label30.Name = "label30";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            resources.GetString("comboBox5.Items"),
+            resources.GetString("comboBox5.Items1")});
+            resources.ApplyResources(this.comboBox5, "comboBox5");
+            this.comboBox5.Name = "comboBox5";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.comboBox4);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.tb_WindowHeightFromFloorSouth);
+            this.tabPage3.Controls.Add(this.tb_WindowWidthSouth);
+            this.tabPage3.Controls.Add(this.tb_WindowLengthSouth);
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.label27);
+            this.tabPage3.Controls.Add(this.label28);
+            this.tabPage3.Controls.Add(this.label29);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label29
+            // 
+            resources.ApplyResources(this.label29, "label29");
+            this.label29.Name = "label29";
+            // 
+            // label28
+            // 
+            resources.ApplyResources(this.label28, "label28");
+            this.label28.Name = "label28";
+            // 
+            // label27
+            // 
+            resources.ApplyResources(this.label27, "label27");
+            this.label27.Name = "label27";
+            // 
+            // tb_WindowLengthSouth
+            // 
+            resources.ApplyResources(this.tb_WindowLengthSouth, "tb_WindowLengthSouth");
+            this.tb_WindowLengthSouth.Name = "tb_WindowLengthSouth";
+            // 
+            // label26
+            // 
+            resources.ApplyResources(this.label26, "label26");
+            this.label26.Name = "label26";
+            // 
+            // tb_WindowWidthSouth
+            // 
+            resources.ApplyResources(this.tb_WindowWidthSouth, "tb_WindowWidthSouth");
+            this.tb_WindowWidthSouth.Name = "tb_WindowWidthSouth";
+            // 
+            // label25
+            // 
+            resources.ApplyResources(this.label25, "label25");
+            this.label25.Name = "label25";
+            // 
+            // tb_WindowHeightFromFloorSouth
+            // 
+            resources.ApplyResources(this.tb_WindowHeightFromFloorSouth, "tb_WindowHeightFromFloorSouth");
+            this.tb_WindowHeightFromFloorSouth.Name = "tb_WindowHeightFromFloorSouth";
+            // 
+            // label24
+            // 
+            resources.ApplyResources(this.label24, "label24");
+            this.label24.Name = "label24";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            resources.GetString("comboBox4.Items"),
+            resources.GetString("comboBox4.Items1")});
+            resources.ApplyResources(this.comboBox4, "comboBox4");
+            this.comboBox4.Name = "comboBox4";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.comboBox3);
+            this.tabPage2.Controls.Add(this.label18);
+            this.tabPage2.Controls.Add(this.tb_WindowHeightFromFloorEast);
+            this.tabPage2.Controls.Add(this.tb_WindowWidthEast);
+            this.tabPage2.Controls.Add(this.tb_WindowLengthEast);
+            this.tabPage2.Controls.Add(this.label19);
+            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.label21);
+            this.tabPage2.Controls.Add(this.label22);
+            this.tabPage2.Controls.Add(this.label23);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            resources.ApplyResources(this.label23, "label23");
+            this.label23.Name = "label23";
+            // 
+            // label22
+            // 
+            resources.ApplyResources(this.label22, "label22");
+            this.label22.Name = "label22";
+            // 
+            // label21
+            // 
+            resources.ApplyResources(this.label21, "label21");
+            this.label21.Name = "label21";
+            // 
+            // tb_WindowLengthEast
+            // 
+            resources.ApplyResources(this.tb_WindowLengthEast, "tb_WindowLengthEast");
+            this.tb_WindowLengthEast.Name = "tb_WindowLengthEast";
+            // 
+            // label20
+            // 
+            resources.ApplyResources(this.label20, "label20");
+            this.label20.Name = "label20";
+            // 
+            // tb_WindowWidthEast
+            // 
+            resources.ApplyResources(this.tb_WindowWidthEast, "tb_WindowWidthEast");
+            this.tb_WindowWidthEast.Name = "tb_WindowWidthEast";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            // 
+            // tb_WindowHeightFromFloorEast
+            // 
+            resources.ApplyResources(this.tb_WindowHeightFromFloorEast, "tb_WindowHeightFromFloorEast");
+            this.tb_WindowHeightFromFloorEast.Name = "tb_WindowHeightFromFloorEast";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            resources.GetString("comboBox3.Items"),
+            resources.GetString("comboBox3.Items1")});
+            resources.ApplyResources(this.comboBox3, "comboBox3");
+            this.comboBox3.Name = "comboBox3";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.label12);
+            this.tabPage1.Controls.Add(this.tb_WindowHeightFromFloorNorth);
+            this.tabPage1.Controls.Add(this.tb_WindowWidthNorth);
+            this.tabPage1.Controls.Add(this.tb_WindowLengthNorth);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.label14);
+            this.tabPage1.Controls.Add(this.label15);
+            this.tabPage1.Controls.Add(this.label38);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.label17);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
+            // label38
+            // 
+            resources.ApplyResources(this.label38, "label38");
+            this.label38.Name = "label38";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // tb_WindowLengthNorth
+            // 
+            resources.ApplyResources(this.tb_WindowLengthNorth, "tb_WindowLengthNorth");
+            this.tb_WindowLengthNorth.Name = "tb_WindowLengthNorth";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // tb_WindowWidthNorth
+            // 
+            resources.ApplyResources(this.tb_WindowWidthNorth, "tb_WindowWidthNorth");
+            this.tb_WindowWidthNorth.Name = "tb_WindowWidthNorth";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
+            // tb_WindowHeightFromFloorNorth
+            // 
+            resources.ApplyResources(this.tb_WindowHeightFromFloorNorth, "tb_WindowHeightFromFloorNorth");
+            this.tb_WindowHeightFromFloorNorth.Name = "tb_WindowHeightFromFloorNorth";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            resources.GetString("comboBox2.Items"),
+            resources.GetString("comboBox2.Items1")});
+            resources.ApplyResources(this.comboBox2, "comboBox2");
+            this.comboBox2.Name = "comboBox2";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
             // 
             // Form1
             // 
@@ -644,17 +641,17 @@ namespace Studienarbeit
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -679,47 +676,6 @@ namespace Studienarbeit
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tb_WindowHeightFromFloorNorth;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tb_WindowWidthNorth;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tb_WindowLengthNorth;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox tb_WindowHeightFromFloorEast;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox tb_WindowWidthEast;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox tb_WindowLengthEast;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox tb_WindowHeightFromFloorSouth;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox tb_WindowWidthSouth;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox tb_WindowLengthSouth;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox tb_WindowHeightFromFloorWest;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox tb_WindowWidthWest;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox tb_WindowLengthWest;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button btn_Calc;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox tb_RoomCountLights;
@@ -729,14 +685,55 @@ namespace Studienarbeit
         private System.Windows.Forms.TextBox tb_RoomCountPower;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox tb_WindowHeightFromFloorWest;
+        private System.Windows.Forms.TextBox tb_WindowWidthWest;
+        private System.Windows.Forms.TextBox tb_WindowLengthWest;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox tb_WindowHeightFromFloorSouth;
+        private System.Windows.Forms.TextBox tb_WindowWidthSouth;
+        private System.Windows.Forms.TextBox tb_WindowLengthSouth;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox tb_WindowHeightFromFloorEast;
+        private System.Windows.Forms.TextBox tb_WindowWidthEast;
+        private System.Windows.Forms.TextBox tb_WindowLengthEast;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tb_WindowHeightFromFloorNorth;
+        private System.Windows.Forms.TextBox tb_WindowWidthNorth;
+        private System.Windows.Forms.TextBox tb_WindowLengthNorth;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
 

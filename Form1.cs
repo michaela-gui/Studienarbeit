@@ -52,36 +52,7 @@ namespace Studienarbeit
                 int leuchtvermögenProLeuchte = Storage.Leuchtmittel_Nutzlichtstrom; //lm
                 int leistungProLeuchte_Glühlampe = Storage.Leuchtmittel_Watt; //W
 
-                Calculation myCalc = new Calculation();
-
-                /* Berechne die Leuchtdichte im Raum */
-                double raumgroesseInm2MitRand = Berechne_Leuchtdichte_Im_Raum(myCalc, reflexionOberflächen, gewünschteLichtmengeImRaum);
-
-                int lux = 0;
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 360)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 12.6);
-                }
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 120)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 3.14);
-                }
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 38)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 1.3);
-                }
-
-                /* Berechne die benötigte Anzahl der Leuchten */
-                this.tb_RoomCountLights.Text = lux.ToString();
-
-                /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
-                this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, lux).ToString();
-
-                /* Setze die "gewünschte Lichtmenge" in der UI */
-                this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
+                Berechne_Parameter_Fuer_Ausgabe(lampentyp, gewünschteLichtmengeImRaum, reflexionOberflächen, leuchtvermögenProLeuchte, leistungProLeuchte_Glühlampe);
             }
 
             /* Default: Glühlampen verwenden, 12lm/W, Ra 80, 500lx, 0.6 Reflex., 800lm Leuchte, 60W, Lichtfarbe 827 (weiß) */
@@ -94,36 +65,7 @@ namespace Studienarbeit
                 int leuchtvermögenProLeuchte = Storage.Leuchtmittel_Nutzlichtstrom; //lm
                 int leistungProLeuchte_Glühlampe = Storage.Leuchtmittel_Watt; //W
 
-                Calculation myCalc = new Calculation();
-
-                /* Berechne die Leuchtdichte im Raum */
-                double raumgroesseInm2MitRand = Berechne_Leuchtdichte_Im_Raum(myCalc, reflexionOberflächen, gewünschteLichtmengeImRaum);
-
-                int lux = 0;
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 360)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 12.6);
-                }
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 120)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 3.14);
-                }
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 38)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 1.3);
-                }
-
-                /* Berechne die benötigte Anzahl der Leuchten */
-                this.tb_RoomCountLights.Text = lux.ToString();
-
-                /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
-                this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, lux).ToString();
-
-                /* Setze die "gewünschte Lichtmenge" in der UI */
-                this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
+                Berechne_Parameter_Fuer_Ausgabe(lampentyp, gewünschteLichtmengeImRaum, reflexionOberflächen, leuchtvermögenProLeuchte, leistungProLeuchte_Glühlampe);
             }
         }
 
