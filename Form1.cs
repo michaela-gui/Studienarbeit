@@ -18,11 +18,25 @@ namespace Studienarbeit
             InitializeComponent();
         }
 
+        /******************* Click-Methoden *******************************************/
+        private void btn_Calc_Click(object sender, EventArgs e)
+        {
+            Berechne_Parameter_Nach_Statischen_Angaben();
+
+            return;
+        }
         private void btn_WaehleLeuchten_Click(object sender, EventArgs e)
         {
             Form mySubForm = new LampenWahl();
             mySubForm.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.AutoScroll = true;
+        }
+
+        /******************* Haupt-Methoden *******************************************/
 
         private double Berechne_Leuchtdichte_Im_Raum(Calculation myCalc, double reflexionOberflächen, int gewünschteLichtmengeImRaum)
         {
@@ -69,17 +83,7 @@ namespace Studienarbeit
             }
         }
 
-        private void btn_Calc_Click(object sender, EventArgs e)
-        {
-            Berechne_Parameter_Nach_Statischen_Angaben();
 
-            return;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.AutoScroll = true;
-        }
 
         private void Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite()
         {
@@ -289,6 +293,38 @@ namespace Studienarbeit
             return;
         }
 
+
+
+
+
+
+
+
+
+
+        /******************* Helfer-Methoden ******************************************/
+        private void btn_ShowRoom_Click(object sender, EventArgs e)
+        {
+            this.pictureBox1.Image = Image.FromFile("..\\..\\Bilder\\AnsichtRaum_Küche.png");
+        }
+
+        private void btn_WähleFenster_Click(object sender, EventArgs e)
+        {
+
+            Form form = new Fenster();
+            form.ShowDialog();
+        }
+        private void btn_BerechneMitTageslicht_Click(object sender, EventArgs e)
+        {
+            /* Lampen bei Tageslicht berechnen */
+            if ((Storage.Fenster_Anzahl_Nord != 0) || (Storage.Fenster_Anzahl_Ost != 0) || (Storage.Fenster_Anzahl_Sued != 0) || (Storage.Fenster_Anzahl_West != 0))
+            {
+                /* Berechne Tageslicht-Quotient des Raumes */
+                Berechne_Fenster();
+            }
+
+            return;
+        }
         private void Setze_Statische_Parameter_Fuer_Raum(double neuerRaumMitRand)
         {
             /* Setze static Parameter */
@@ -305,7 +341,13 @@ namespace Studienarbeit
 
             return;
         }
+        private double Berechne_LichtTiefe_im_Raum(double WindowHeightFromFloor)
+        {
+            /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
+            double tiefeRaum = WindowHeightFromFloor / 2.0;
 
+            return tiefeRaum;
+        }
         private void Berechne_Parameter_Neuer_Raum(double neuerRaumMitRand)
         {
             if (this.comboBox1.Text.Equals("Küche"))
@@ -323,38 +365,6 @@ namespace Studienarbeit
                 /* Berechne die benötigte Anzahl der Leuchten */
                 this.tb_RoomCountLights.Text = Berechne_Leuchtdichte_Im_Raum(neuerRaumMitRand).ToString();
             }
-        }
-
-        private void btn_BerechneMitTageslicht_Click(object sender, EventArgs e)
-        {
-            /* Lampen bei Tageslicht berechnen */
-            if ((Storage.Fenster_Anzahl_Nord != 0) || (Storage.Fenster_Anzahl_Ost != 0) || (Storage.Fenster_Anzahl_Sued != 0) || (Storage.Fenster_Anzahl_West != 0))
-            {
-                /* Berechne Tageslicht-Quotient des Raumes */
-                Berechne_Fenster();
-            }
-
-            return;
-        }
-
-        private double Berechne_LichtTiefe_im_Raum(double WindowHeightFromFloor)
-        {
-            /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
-            double tiefeRaum = WindowHeightFromFloor / 2.0;
-
-            return tiefeRaum;
-        }
-
-        private void btn_ShowRoom_Click(object sender, EventArgs e)
-        {
-            this.pictureBox1.Image = Image.FromFile("..\\..\\Bilder\\AnsichtRaum_Küche.png");
-        }
-
-        private void btn_WähleFenster_Click(object sender, EventArgs e)
-        {
-            
-            Form form = new Fenster();
-            form.ShowDialog();
         }
 
         /******************* bisher nicht benötigte Methoden **************************/
