@@ -175,6 +175,25 @@ namespace Studienarbeit
 
             return lichtausbeute;
         }
+
+        public int Berechne_Vertikale_Beleuchtstärke(int Nennbeleuchtstärke)
+        {
+            /* Die vertikale Beleuchtstärke (lux) ist etwa die Hälfte/ ein Dritte der Nennbeleuchtstärke (lux) */
+            int vertikaleBeleuchtstärke = Nennbeleuchtstärke / 2;
+
+            return vertikaleBeleuchtstärke;
+        }
+
+        public int Berechne_Wandleuchtdichte(int Raumhelligkeit, double Reflexionsgrad)
+        {
+            /* Berechne die subjektive Helligkeit im Raum, dass die Wand als sekundäres Umfeld in den Hintergrund rückt */
+
+            int wandleuchtdichte = Convert.ToInt32((Berechne_Vertikale_Beleuchtstärke(Raumhelligkeit) * Reflexionsgrad) / Math.PI);
+
+            
+
+            return wandleuchtdichte;
+        }
     }
 
     class Storage

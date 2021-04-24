@@ -444,6 +444,8 @@ namespace Studienarbeit
                 /* Setze die "gewünschte Lichtmenge" in der UI */
                 this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
             }
+
+
         }
 
         private void btn_BerechneMitTageslicht_Click(object sender, EventArgs e)
@@ -457,6 +459,8 @@ namespace Studienarbeit
 
             /* Berechne Tageslicht-Quotient des Raumes */
             Berechne_Fenster();
+
+            //BerechneRaumTiefeFuerTageslicht();
 
             return;
         }
@@ -483,6 +487,9 @@ namespace Studienarbeit
                 /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
                 double tiefeRaum = maxFensterHoehe / 2.0;
             }
+            //Calculation myCalc = new Calculation();
+            //Console.WriteLine(Storage.Raum_Arbeitsplatz_Lichtmenge);
+            //Console.WriteLine("HIER HIER " + myCalc.Berechne_Wandleuchtdichte(Storage.Raum_Arbeitsplatz_Lichtmenge, 0.6));
         }
     }
 }
