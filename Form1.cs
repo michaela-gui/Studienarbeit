@@ -359,90 +359,73 @@ namespace Studienarbeit
             return;
         }
 
-        private void Berechne_Parameter_Neuer_Raum(double neuerRaumMitRand)
+        public int Berechne_Leuchtdichte_Im_Raum(double neuerRaumMitRand)
         {
-            /* Default: Glühlampen verwenden, 12lm/W, Ra 90, 500lx, 0.6 Reflex., 800lm Leuchte, 60W, Lichtfarbe 827 (weiß) */
-            if (this.comboBox1.Text.Equals("Küche"))
+            /* Berechne die Leuchtdichte im Raum */
+            double raumgroesseInm2MitRand = neuerRaumMitRand;
+
+            int lux = 0;
+
+            if (Storage.Leuchtmittel_Abstrahlwinkel == 360)
             {
-                /* Setze static Parameter */
-                string lampentyp = Storage.Leuchtmittel_Typ;
-                int gewünschteLichtmengeImRaum = Storage.Raum_Arbeitsplatz_Lichtmenge; //lx
-                double reflexionOberflächen = 0.6;
-                int leuchtvermögenProLeuchte = Storage.Leuchtmittel_Nutzlichtstrom; //lm
-                int leistungProLeuchte_Glühlampe = Storage.Leuchtmittel_Watt; //W
-
-                Calculation myCalc = new Calculation();
-
-                /* Berechne die Leuchtdichte im Raum */
-                double raumgroesseInm2MitRand = neuerRaumMitRand;
-
-                int lux = 0;
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 360)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 12.6);
-                }
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 120)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 3.14);
-                }
-
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 38)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 1.3);
-                }
-
-                /* Berechne die benötigte Anzahl der Leuchten */
-                this.tb_RoomCountLights.Text = lux.ToString();
-
-                /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
-                this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, lux).ToString();
-
-                /* Setze die "gewünschte Lichtmenge" in der UI */
-                this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
+                lux = Convert.ToInt32(raumgroesseInm2MitRand / 12.6);
             }
 
-            /* Default: Glühlampen verwenden, 12lm/W, Ra 80, 500lx, 0.6 Reflex., 800lm Leuchte, 60W, Lichtfarbe 827 (weiß) */
-            if (this.comboBox1.Text.Equals("Arbeitszimmer"))
+            if (Storage.Leuchtmittel_Abstrahlwinkel == 120)
             {
-                /* Setze static Parameter */
-                string lampentyp = Storage.Leuchtmittel_Typ;
-                int gewünschteLichtmengeImRaum = Storage.Raum_Arbeitsplatz_Lichtmenge; //lx
-                double reflexionOberflächen = 0.6;
-                int leuchtvermögenProLeuchte = Storage.Leuchtmittel_Nutzlichtstrom; //lm
-                int leistungProLeuchte_Glühlampe = Storage.Leuchtmittel_Watt; //W
+                lux = Convert.ToInt32(raumgroesseInm2MitRand / 3.14);
+            }
 
-                Calculation myCalc = new Calculation();
+            if (Storage.Leuchtmittel_Abstrahlwinkel == 38)
+            {
+                lux = Convert.ToInt32(raumgroesseInm2MitRand / 1.3);
+            }
 
-                /* Berechne die Leuchtdichte im Raum */
-                double raumgroesseInm2MitRand = neuerRaumMitRand;
+            return lux;
+        }
 
-                int lux = 0;
+        private void Berechne_Lichtausbeute_Verwendete_Lampen(int leistungProLeuchte_Glühlampe, double neuerRaumMitRand)
+        {
+            /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
+            Calculation myCalc = new Calculation();
+            this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, Berechne_Leuchtdichte_Im_Raum(neuerRaumMitRand)).ToString();
 
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 360)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 12.6);
-                }
+            return;
+        }
 
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 120)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 3.14);
-                }
+        private void Setze_Statische_Parameter_Fuer_Raum(double neuerRaumMitRand)
+        {
+            /* Setze static Parameter */
+            string lampentyp = Storage.Leuchtmittel_Typ;
+            int gewünschteLichtmengeImRaum = Storage.Raum_Arbeitsplatz_Lichtmenge; //lx
+            double reflexionOberflächen = 0.6; /* evtl. Wand- und Fußbodenleuchtdichte hieraus berechnen */
+            int leuchtvermögenProLeuchte = Storage.Leuchtmittel_Nutzlichtstrom; //lm
+            int leistungProLeuchte_Glühlampe = Storage.Leuchtmittel_Watt; //W
 
-                if (Storage.Leuchtmittel_Abstrahlwinkel == 38)
-                {
-                    lux = Convert.ToInt32(raumgroesseInm2MitRand / 1.3);
-                }
+            Berechne_Lichtausbeute_Verwendete_Lampen(leistungProLeuchte_Glühlampe, neuerRaumMitRand);
+
+            /* Setze die "gewünschte Lichtmenge" in der UI */
+            this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
+
+            return;
+        }
+
+        private void Berechne_Parameter_Neuer_Raum(double neuerRaumMitRand)
+        {
+            if (this.comboBox1.Text.Equals("Küche"))
+            {
+                Setze_Statische_Parameter_Fuer_Raum(neuerRaumMitRand);
 
                 /* Berechne die benötigte Anzahl der Leuchten */
-                this.tb_RoomCountLights.Text = lux.ToString();
+                this.tb_RoomCountLights.Text = Berechne_Leuchtdichte_Im_Raum(neuerRaumMitRand).ToString();
+            }
 
-                /* Berechne die Lichtausbeute für die verwendeten Lampentypen */
-                this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(leistungProLeuchte_Glühlampe, lux).ToString();
+            if (this.comboBox1.Text.Equals("Arbeitszimmer"))
+            {
+                Setze_Statische_Parameter_Fuer_Raum(neuerRaumMitRand);
 
-                /* Setze die "gewünschte Lichtmenge" in der UI */
-                this.tb_RoomLux.Text = leuchtvermögenProLeuchte.ToString();
+                /* Berechne die benötigte Anzahl der Leuchten */
+                this.tb_RoomCountLights.Text = Berechne_Leuchtdichte_Im_Raum(neuerRaumMitRand).ToString();
             }
 
 
@@ -459,8 +442,6 @@ namespace Studienarbeit
 
             /* Berechne Tageslicht-Quotient des Raumes */
             Berechne_Fenster();
-
-            //BerechneRaumTiefeFuerTageslicht();
 
             return;
         }
@@ -487,9 +468,6 @@ namespace Studienarbeit
                 /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
                 double tiefeRaum = maxFensterHoehe / 2.0;
             }
-            //Calculation myCalc = new Calculation();
-            //Console.WriteLine(Storage.Raum_Arbeitsplatz_Lichtmenge);
-            //Console.WriteLine("HIER HIER " + myCalc.Berechne_Wandleuchtdichte(Storage.Raum_Arbeitsplatz_Lichtmenge, 0.6));
         }
     }
 }
