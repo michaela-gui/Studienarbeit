@@ -235,6 +235,7 @@ namespace Studienarbeit
 
             double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
 
+            Storage.NeuerDunklerRaum = raumgroesseInm2MitRand;
 
             //2. Berechne Anzahl Lichter
             Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
@@ -555,8 +556,202 @@ namespace Studienarbeit
 
         private void btn_WähleFenster_Click(object sender, EventArgs e)
         {
+            Teile_Raum_In_Recktecke_Von_1Meter();
             Form form = new Fenster();
             form.ShowDialog();
+        }
+
+        private void Teile_Raum_In_Recktecke_Von_1Meter()
+        {
+            /* Teile Raum in Rechtecke von 1 Meter auf, um dunkle Stellen <2% zu finden */
+            int RaumRechteck = Convert.ToInt32(Convert.ToDouble(this.tb_RoomLength.Text) * Convert.ToDouble(this.tb_RoomWidth.Text));
+            int anzahlRechtecke = RaumRechteck / 1; // m²/m²
+
+            /* Berechne Einflusstiefe auf der Nord-Seite */
+            if (Storage.Fenster_Laenge_Nord != 0)
+            {
+                /* Feste Annahme: Nordseite durchschnittlich 20.000 Lux */
+                int lux_Nord = 10000; // E(h) außen
+
+                if (Storage.FensterSeiteNorden == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                {
+                    /* Maße der Längsseite verwenden */
+                    int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
+                    int tempLocalWidth = localLength;
+                    while (localLength > 0)
+                    {
+                        if (localLength == tempLocalWidth)
+                        {
+                            /* Direkt am Fenster */
+                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 11.0) / 100);
+                        }
+                        if ((localLength + 1) == tempLocalWidth)
+                        {
+                            /* Nach 1 Meter */
+                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 6.5) / 100);
+                        }
+                        if ((localLength + 2) == tempLocalWidth)
+                        {
+                            /* Nach 2 Meter */
+                            int E_innen_2Meter = Convert.ToInt32((lux_Nord * 3.9) / 100);
+                        }
+                        if ((localLength + 3) == tempLocalWidth)
+                        {
+                            /* Nach 3 Meter */
+                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 2.7) / 100);
+                        }
+                        if ((localLength + 4) == tempLocalWidth)
+                        {
+                            /* Nach 4 Meter */
+                            int E_innen_4Meter = Convert.ToInt32((lux_Nord * 2.0) / 100);
+                        }
+                        if ((localLength + 5) == tempLocalWidth)
+                        {
+                            /* Nach 5 Meter */ /* Tageslicht reicht unter 2% nicht aus */
+                            int E_innen_5Meter = Convert.ToInt32((lux_Nord * 1.8) / 100);
+                            Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite();
+                        }
+                        if ((localLength + 6) == tempLocalWidth)
+                        {
+                            /* Nach 6 Meter */
+                            int E_innen_6Meter = Convert.ToInt32((lux_Nord * 1.3) / 100);
+                            Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite();
+                        }
+                        localLength -= 1;
+                    }
+
+                }
+                if (Storage.FensterSeiteNorden == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                {
+                    /* Maße der Breitseite verwenden */
+                    int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
+                    int tempLocalWidth = localWidth;
+                    while (localWidth > 0)
+                    {
+                        if (localWidth == tempLocalWidth)
+                        {
+                            /* Direkt am Fenster */
+                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 11.0) / 100);
+                        }
+                        if ((localWidth + 1) == tempLocalWidth)
+                        {
+                            /* Nach 1 Meter */
+                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 6.5) / 100);
+                        }
+                        if ((localWidth + 2) == tempLocalWidth)
+                        {
+                            /* Nach 2 Meter */
+                            int E_innen_2Meter = Convert.ToInt32((lux_Nord * 3.9) / 100);
+                        }
+                        if ((localWidth + 3) == tempLocalWidth)
+                        {
+                            /* Nach 3 Meter */
+                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 2.7) / 100);
+                        }
+                        if ((localWidth + 4) == tempLocalWidth)
+                        {
+                            /* Nach 4 Meter */
+                            int E_innen_4Meter = Convert.ToInt32((lux_Nord * 2.0) / 100);
+                        }
+                        if ((localWidth + 5) == tempLocalWidth)
+                        {
+                            /* Nach 5 Meter */ /* Tageslicht reicht unter 2% nicht aus */
+                            int E_innen_5Meter = Convert.ToInt32((lux_Nord * 1.8) / 100);
+                            Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite();
+                        }
+                        if ((localWidth + 6) == tempLocalWidth)
+                        {
+                            /* Nach 6 Meter */
+                            int E_innen_6Meter = Convert.ToInt32((lux_Nord * 1.3) / 100);
+                            Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite();
+                        }
+                        localWidth -= 1;
+                    }
+                }
+            } /* Ende "Nord-Seite" */
+
+            /* Wenn Storage.NeuerDunklerRaum vorhanden, dann neue Rechtecke daraus berechnen */
+            int localStorage = Convert.ToInt32(Storage.NeuerDunklerRaum / 1);
+            Console.WriteLine(localStorage);
+
+            /* Berechne die Ost-Seite */
+            if (Storage.Fenster_Laenge_Ost != 0)
+            {
+                /* Feste Annahme: Ostseite durchschnittlich 15.000 Lux */
+                int lux_Ost = 15000; // E(h) außen
+
+                if (Storage.FensterSeiteNorden == "Breitseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                {
+                    /* Maße der Längsseite verwenden */
+                    int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_Ost);
+
+                }
+                if (Storage.FensterSeiteNorden == "Längsseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                {
+                    /* Maße der Breitseite verwenden */
+                    int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localWidth, lux_Ost);
+                }
+            } /* Ende "Ost-Seite" */
+
+            /* Wenn Storage.NeuerDunklerRaum vorhanden, dann neue Rechtecke daraus berechnen */
+            int localStorage2 = Convert.ToInt32(Storage.NeuerDunklerRaum / 1);
+            localStorage -= localStorage2;
+            Console.WriteLine(localStorage);
+
+            /* Berechne die Süd-Seite */
+            if (this.tb_WindowLengthSouth.Text.Length != 0)
+            {
+                /* Feste Annahme: Südseite durchschnittlich 20.000 Lux */
+                int lux_Sued = 20000; // E(h) außen
+
+                if (Storage.FensterSeiteNorden == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                {
+                    /* Maße der Längsseite verwenden */
+                    int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_Sued);
+
+                }
+                if (Storage.FensterSeiteNorden == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                {
+                    /* Maße der Breitseite verwenden */
+                    int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localWidth, lux_Sued);
+                }
+            } /* Ende "Süd-Seite" */
+
+            /* Wenn Storage.NeuerDunklerRaum vorhanden, dann neue Rechtecke daraus berechnen */
+            localStorage2 = Convert.ToInt32(Storage.NeuerDunklerRaum / 1);
+            localStorage -= localStorage2;
+            Console.WriteLine(localStorage);
+
+            /* Berechne die West-Seite */
+            if (this.tb_WindowLengthWest.Text.Length != 0)
+            {
+                /* Feste Annahme: Westseite durchschnittlich 15.000 Lux */
+                int lux_West = 15000; // E(h) außen
+
+                if (Storage.FensterSeiteNorden == "Breitseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                {
+                    /* Maße der Längsseite verwenden */
+                    int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_West);
+
+                }
+                if (Storage.FensterSeiteNorden == "Längsseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                {
+                    /* Maße der Breitseite verwenden */
+                    int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localWidth, lux_West);
+                }
+            } /* Ende "West-Seite" */
+
+            /* Wenn Storage.NeuerDunklerRaum vorhanden, dann neue Rechtecke daraus berechnen */
+            localStorage2 = Convert.ToInt32(Storage.NeuerDunklerRaum / 1);
+            localStorage -= localStorage2;
+
+            Console.WriteLine("localstorage " + localStorage);
         }
     }
 }

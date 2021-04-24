@@ -229,5 +229,7 @@ namespace Studienarbeit
         public static double Fenster_Laenge_West = 0;
 
         public static string FensterSeiteNorden = "";
+
+        public static double NeuerDunklerRaum = 0;
     }
 }
