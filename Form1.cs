@@ -163,7 +163,7 @@ namespace Studienarbeit
             } /* Ende "Ost-Seite" */
 
             /* Berechne die Süd-Seite */
-            if (this.tb_WindowLengthSouth.Text.Length != 0)
+            if (Storage.Fenster_Laenge_Sued != 0)
             {
                 /* Feste Annahme: Südseite durchschnittlich 20.000 Lux */
                 int lux_Sued = 20000; // E(h) außen
@@ -184,7 +184,7 @@ namespace Studienarbeit
             } /* Ende "Süd-Seite" */
 
             /* Berechne die West-Seite */
-            if (this.tb_WindowLengthWest.Text.Length != 0)
+            if (Storage.Fenster_Laenge_West != 0)
             {
                 /* Feste Annahme: Westseite durchschnittlich 15.000 Lux */
                 int lux_West = 15000; // E(h) außen
@@ -358,33 +358,6 @@ namespace Studienarbeit
         }
 
         /******************* bisher nicht benötigte Methoden **************************/
-        private void BerechneRaumTiefeFuerTageslicht()
-        {
-            /* Für die Nordseite */
-            if ((this.comboBox2.Text == "Längsseite") || (this.comboBox2.Text == "Breitseite"))
-            {
-                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Nord);
-            }
-
-            /* Für die Ostseite */
-            if ((this.comboBox3.Text == "Längsseite") || (this.comboBox3.Text == "Breitseite"))
-            {
-                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Ost);
-            }
-
-            /* Für die Südseite */
-            if ((this.comboBox4.Text == "Längsseite") || (this.comboBox4.Text == "Breitseite"))
-            {
-                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Sued);
-            }
-
-            /* Für die Westseite */
-            if ((this.comboBox5.Text == "Längsseite") || (this.comboBox5.Text == "Breitseite"))
-            {
-                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_West);
-            }
-        }
-
         private void BerechneRaumTiefeFuesTageslicht_Version2()
         {
             if (Storage.Fenster_Laenge_Nord != 0)
