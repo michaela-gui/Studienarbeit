@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Studienarbeit
 {
     public partial class Form1 : Form
@@ -177,6 +178,22 @@ namespace Studienarbeit
         private void Form1_Load(object sender, EventArgs e)
         {
             this.AutoScroll = true;
+            //WebBrowser webBrowser1 = new WebBrowser();
+            //var page = @"
+            //<html>
+            //    <body>
+            //        < iframe width = '800' height = '600'
+            //            src = 'https://www.roomle.com/app/3d/bpf7gyjw1vw3jsl1svtlfsa9dnvyxra'  frameborder = '0' >
+            //        </iframe>
+            //    </body>
+            //</html>";
+            //webBrowser1.DocumentText = page;
+            //webBrowser1.ScriptErrorsSuppressed = true;
+
+            //< Grid >
+            //    < WebView Source = "https://yourwebsite.com" Height = "250" Width = "650" />
+            //</ Grid >
+
         }
 
         private void Berechne_Neue_Anzahl_ungenuegend_Tageslicht_LangeSeite()
@@ -227,41 +244,54 @@ namespace Studienarbeit
 
         private void Berechne_Fenster()
         {
+            int seite = 0;
+            switch(Storage.FensterSeiteNorden)
+            {
+                case "Längsseite": /* Fenster Norden ist auf der Längsseite des Raumes */
+                    seite = 1;
+                    break;
+                case "Breitseite":
+                    seite = 2; /* Fenster Norden ist auf der Breitsteite des Raumes */
+                    break;
+            }
+
             /* Berechne die Nord-Seite */
-            if(this.tb_WindowLengthNorth.Text.Length != 0)
+            if (Storage.Fenster_Laenge_Nord != 0)
             {
                 /* Feste Annahme: Nordseite durchschnittlich 20.000 Lux */
                 int lux_Nord = 10000; // E(h) außen
 
-                if(this.comboBox2.Text == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                if(Storage.FensterSeiteNorden == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
                 {
                     /* Maße der Längsseite verwenden */
                     int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
                     Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_Nord);
+                    seite = 1;
 
                 }
-                if (this.comboBox2.Text == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                if (Storage.FensterSeiteNorden == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
                 {
                     /* Maße der Breitseite verwenden */
                     int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
                     Berechne_Tiefe_Einfluss_Sonnenlicht(localWidth, lux_Nord);
+                    seite = 2;
                 }
             } /* Ende "Nord-Seite" */
 
             /* Berechne die Ost-Seite */
-            if (this.tb_WindowLengthEast.Text.Length != 0)
+            if (Storage.Fenster_Laenge_Ost != 0)
             {
                 /* Feste Annahme: Ostseite durchschnittlich 15.000 Lux */
                 int lux_Ost = 15000; // E(h) außen
 
-                if (this.comboBox3.Text == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                if (seite == 2) /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
                 {
                     /* Maße der Längsseite verwenden */
                     int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
                     Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_Ost);
 
                 }
-                if (this.comboBox3.Text == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                if (seite == 1) /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
                 {
                     /* Maße der Breitseite verwenden */
                     int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
@@ -275,14 +305,14 @@ namespace Studienarbeit
                 /* Feste Annahme: Südseite durchschnittlich 20.000 Lux */
                 int lux_Sued = 20000; // E(h) außen
 
-                if (this.comboBox4.Text == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                if (seite == 1) /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
                 {
                     /* Maße der Längsseite verwenden */
                     int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
                     Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_Sued);
 
                 }
-                if (this.comboBox4.Text == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                if (seite == 2) /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
                 {
                     /* Maße der Breitseite verwenden */
                     int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
@@ -296,14 +326,14 @@ namespace Studienarbeit
                 /* Feste Annahme: Westseite durchschnittlich 15.000 Lux */
                 int lux_West = 15000; // E(h) außen
 
-                if (this.comboBox5.Text == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                if (seite == 2) /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
                 {
                     /* Maße der Längsseite verwenden */
                     int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
                     Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_West);
 
                 }
-                if (this.comboBox5.Text == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                if (seite == 1) /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
                 {
                     /* Maße der Breitseite verwenden */
                     int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
@@ -437,57 +467,96 @@ namespace Studienarbeit
         private void btn_BerechneMitTageslicht_Click(object sender, EventArgs e)
         {
             /* Lampen bei Tageslicht berechnen */
-            if(this.tb_WindowHeightFromFloorNorth.Text.Length == 0)
+            //if(this.tb_WindowHeightFromFloorNorth.Text.Length == 0)
+            //{
+            //    this.tb_WindowHeightFromFloorNorth.Text = "Bitte ausfüllen!";
+            //    return;
+            //}
+
+            if((Storage.Fenster_Anzahl_Nord != 0) || (Storage.Fenster_Anzahl_Ost != 0) || (Storage.Fenster_Anzahl_Sued != 0) || (Storage.Fenster_Anzahl_West != 0))
             {
-                this.tb_WindowHeightFromFloorNorth.Text = "Bitte ausfüllen!";
-                return;
+                /* Berechne Tageslicht-Quotient des Raumes */
+                Berechne_Fenster();
             }
 
-            /* Berechne Tageslicht-Quotient des Raumes */
-            Berechne_Fenster();
+            
+            //Berechne_Fenster();
 
             //BerechneRaumTiefeFuerTageslicht();
 
             return;
         }
 
-        private double Berechne_LichtTiefe_im_Raum(TextBox WindowHeightFromFloor)
+        private double Berechne_LichtTiefe_im_Raum(double WindowHeightFromFloor)
         {
             /* Berechne die maximale Höhe des Fensters */
-            double windowHeight = Convert.ToDouble(WindowHeightFromFloor.Text);
-            double workingHeight = Convert.ToDouble(this.tb_WindowLengthNorth.Text);
-            double maxFensterHoehe = windowHeight + workingHeight;
+            //double windowHeight = WindowHeightFromFloor;
+            //double workingHeight = Convert.ToDouble(this.tb_WindowLengthNorth.Text);
+            //double maxFensterHoehe = windowHeight + workingHeight;
             /* Berechne die Tiefe im Raum über 2 Winkel (30° Sonneneinfall, 90° Boden) und 1 Seite (maxFensterHoehe) */
-            double tiefeRaum = maxFensterHoehe / 2.0;
+            double tiefeRaum = WindowHeightFromFloor / 2.0;
 
             return tiefeRaum;
         }
 
-        private void BerechneRaumTiefeFuerTageslicht()
+        private void BerechneRaumTiefeFuesTageslicht_Version2()
         {
-            /* Für die Nordseite */
-            if ((this.comboBox2.Text == "Längsseite") || (this.comboBox2.Text == "Breitseite"))
+            if(Storage.Fenster_Laenge_Nord != 0)
             {
-                Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
+                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Nord);
+            }
+            if (Storage.Fenster_Laenge_Ost != 0)
+            {
+                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Ost);
+            }
+            if (Storage.Fenster_Laenge_Sued != 0)
+            {
+                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_Sued);
+            }
+            if (Storage.Fenster_Laenge_West != 0)
+            {
+                Berechne_LichtTiefe_im_Raum(Storage.Fenster_Laenge_West);
             }
 
-            /* Für die Ostseite */
-            if ((this.comboBox3.Text == "Längsseite") || (this.comboBox3.Text == "Breitseite"))
-            {
-                Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
-            }
+            return;
+        }
 
-            /* Für die Südseite */
-            if ((this.comboBox4.Text == "Längsseite") || (this.comboBox4.Text == "Breitseite"))
-            {
-                Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
-            }            
-            
-            /* Für die Westseite */
-            if ((this.comboBox5.Text == "Längsseite") || (this.comboBox5.Text == "Breitseite"))
-            {
-                Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
-            }
+        //private void BerechneRaumTiefeFuerTageslicht()
+        //{
+        //    /* Für die Nordseite */
+        //    if ((this.comboBox2.Text == "Längsseite") || (this.comboBox2.Text == "Breitseite"))
+        //    {
+        //        Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
+        //    }
+        //
+        //    /* Für die Ostseite */
+        //    if ((this.comboBox3.Text == "Längsseite") || (this.comboBox3.Text == "Breitseite"))
+        //    {
+        //        Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
+        //    }
+        //
+        //    /* Für die Südseite */
+        //    if ((this.comboBox4.Text == "Längsseite") || (this.comboBox4.Text == "Breitseite"))
+        //    {
+        //        Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
+        //    }            
+        //    
+        //    /* Für die Westseite */
+        //    if ((this.comboBox5.Text == "Längsseite") || (this.comboBox5.Text == "Breitseite"))
+        //    {
+        //        Berechne_LichtTiefe_im_Raum(this.tb_WindowHeightFromFloorNorth);
+        //    }
+        //}
+
+        private void btn_ShowRoom_Click(object sender, EventArgs e)
+        {
+            this.pictureBox1.Image = Image.FromFile("..\\..\\Bilder\\AnsichtRaum_Küche.png");
+        }
+
+        private void btn_WähleFenster_Click(object sender, EventArgs e)
+        {
+            Form form = new Fenster();
+            form.ShowDialog();
         }
     }
 }

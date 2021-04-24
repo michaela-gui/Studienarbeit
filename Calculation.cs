@@ -214,5 +214,20 @@ namespace Studienarbeit
         public static int Raum_Arbeitsplatz_Lichtmenge = 500; // in Lux
         public static int Raum_Arbeitsplatz_direktesLichtmenge = 300; // in Lux
         public static int Raum_Arbeitsplatz_weiteresUmfeld_Lichtmenge = 150; // in Lux
+
+        public static int Fenster_Anzahl_Nord = 0;
+        public static int Fenster_Anzahl_Ost = 0;
+        public static int Fenster_Anzahl_Sued = 0;
+        public static int Fenster_Anzahl_West = 0;
+        public static double Fenster_Breite_Nord = 0;
+        public static double Fenster_Laenge_Nord = 0;
+        public static double Fenster_Breite_Ost = 0;
+        public static double Fenster_Laenge_Ost = 0;
+        public static double Fenster_Breite_Sued = 0;
+        public static double Fenster_Laenge_Sued = 0;
+        public static double Fenster_Breite_West = 0;
+        public static double Fenster_Laenge_West = 0;
+
+        public static string FensterSeiteNorden = "";
     }
 }
