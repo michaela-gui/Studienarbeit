@@ -179,9 +179,50 @@ namespace Studienarbeit
             this.AutoScroll = true;
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
+        private void Berechne_Neue_Anzahl_ungenuegend_Tageslicht_LangeSeite()
         {
+            /* Berechne Anzahl notwendiger Lichter für Raum */
 
+            //1. Berechne neues "Rechteck" für Lichtberechnung
+            int newRoomLength = Convert.ToInt32(this.tb_RoomLength.Text) - 4;
+
+            /* Rechne Lumen/m² in Lux um */
+            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * newRoomLength;
+
+            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
+            double tempRoomLength = Convert.ToDouble(this.tb_RoomWidth.Text);
+            double tempRoomWidth = newRoomLength;
+
+            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
+
+
+            //2. Berechne Anzahl Lichter
+            Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
+
+            return;
+        }
+
+        private void Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite()
+        {
+            /* Berechne Anzahl notwendiger Lichter für Raum */
+
+            //1. Berechne neues "Rechteck" für Lichtberechnung
+            int newRoomWidth = Convert.ToInt32(this.tb_RoomWidth.Text) - 4;
+
+            /* Rechne Lumen/m² in Lux um */
+            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * newRoomWidth;
+
+            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
+            double tempRoomLength = Convert.ToDouble(this.tb_RoomLength.Text);
+            double tempRoomWidth = newRoomWidth;
+
+            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
+
+
+            //2. Berechne Anzahl Lichter
+            Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
+
+            return;
         }
 
         private void Berechne_Fenster()
@@ -190,171 +231,133 @@ namespace Studienarbeit
             if(this.tb_WindowLengthNorth.Text.Length != 0)
             {
                 /* Feste Annahme: Nordseite durchschnittlich 20.000 Lux */
-                int lux_Nord = 20000; // E(h) außen
+                int lux_Nord = 10000; // E(h) außen
 
-                if(this.comboBox2.Text == "Längsseite")
+                if(this.comboBox2.Text == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
                 {
                     /* Maße der Längsseite verwenden */
                     int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
-                    int tempLocalLength = localLength;
-                    while (localLength > 0)
-                    {
-                        if (localLength == tempLocalLength)
-                        {
-                            /* Direkt am Fenster */
-                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 11.0) / 100);
-                        }
-                        if(localLength == tempLocalLength - 1)
-                        {
-                            /* Nach 1 Meter */
-                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 6.5) / 100);
-                        }
-                        if (localLength == tempLocalLength - 2)
-                        {
-                            /* Nach 2 Meter */
-                            int E_innen_2Meter = Convert.ToInt32((lux_Nord * 3.9) / 100);
-                        }
-                        if (localLength == tempLocalLength - 3)
-                        {
-                            /* Nach 3 Meter */
-                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 2.7) / 100);
-                        }
-                        if (localLength == tempLocalLength - 4)
-                        {
-                            /* Nach 4 Meter */
-                            int E_innen_4Meter = Convert.ToInt32((lux_Nord * 2.0) / 100);
-                        }
-                        if (localLength == tempLocalLength - 5)
-                        {
-                            /* Nach 5 Meter */
-                            int E_innen_5Meter = Convert.ToInt32((lux_Nord * 1.8) / 100);
-                            /* Berechne Anzahl notwendiger Lichter für Raum */
-
-                            //1. Berechne neues "Rechteck" für Lichtberechnung
-                            int newRoomLength = Convert.ToInt32(this.tb_RoomLength.Text) - 4;
-
-                            /* Rechne Lumen/m² in Lux um */
-                            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * newRoomLength;
-
-                            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
-                            double tempRoomLength = Convert.ToDouble(this.tb_RoomWidth.Text);
-                            double tempRoomWidth = newRoomLength;
-
-                            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
-
-
-                            //2. Berechne Anzahl Lichter
-                            Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
-                        }
-                        if (localLength == tempLocalLength - 6)
-                        {
-                            /* Nach 6 Meter */
-                            int E_innen_6Meter = Convert.ToInt32((lux_Nord * 1.3) / 100);
-                            /* Berechne Anzahl notwendiger Lichter für Raum */
-
-                            //1. Berechne neues "Rechteck" für Lichtberechnung
-                            int newRoomLength = Convert.ToInt32(this.tb_RoomLength.Text) - 4;
-
-                            /* Rechne Lumen/m² in Lux um */
-                            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * newRoomLength;
-
-                            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
-                            double tempRoomLength = Convert.ToDouble(this.tb_RoomWidth.Text);
-                            double tempRoomWidth = newRoomLength;
-
-                            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
-
-
-                            //2. Berechne Anzahl Lichter
-                            Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
-                        }
-                        localLength -= 1;
-                    }
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_Nord);
 
                 }
-                if (this.comboBox2.Text == "Breitseite")
+                if (this.comboBox2.Text == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
                 {
                     /* Maße der Breitseite verwenden */
                     int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
-                    int tempLocalWidth = localWidth;
-                    while (localWidth > 0)
-                    {
-                        if (localWidth == tempLocalWidth)
-                        {
-                            /* Direkt am Fenster */
-                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 11.0) / 100);
-                        }
-                        if ((localWidth + 1) == tempLocalWidth)
-                        {
-                            /* Nach 1 Meter */
-                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 6.5) / 100);
-                        }
-                        if ((localWidth + 2) == tempLocalWidth)
-                        {
-                            /* Nach 2 Meter */
-                            int E_innen_2Meter = Convert.ToInt32((lux_Nord * 3.9) / 100);
-                        }
-                        if ((localWidth + 3) == tempLocalWidth)
-                        {
-                            /* Nach 3 Meter */
-                            int E_innen_1Meter = Convert.ToInt32((lux_Nord * 2.7) / 100);
-                        }
-                        if ((localWidth + 4) == tempLocalWidth)
-                        {
-                            /* Nach 4 Meter */
-                            int E_innen_4Meter = Convert.ToInt32((lux_Nord * 2.0) / 100);
-                        }
-                        if ((localWidth + 5 )== tempLocalWidth)
-                        {
-                            /* Nach 5 Meter */ /* Tageslicht reicht unter 2% nicht aus */
-                            int E_innen_5Meter = Convert.ToInt32((lux_Nord * 1.8) / 100);
-                            /* Berechne Anzahl notwendiger Lichter für Raum */
-                            
-                            //1. Berechne neues "Rechteck" für Lichtberechnung
-                            int newRoomWidth = Convert.ToInt32(this.tb_RoomWidth.Text) - 4;
-                            
-                            /* Rechne Lumen/m² in Lux um */
-                            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * newRoomWidth;
-
-                            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
-                            double tempRoomLength = Convert.ToDouble(this.tb_RoomLength.Text);
-                            double tempRoomWidth = newRoomWidth;
-
-                            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
-
-
-                            //2. Berechne Anzahl Lichter
-                            Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
-                        }
-                        if ((localWidth + 6) == tempLocalWidth)
-                        {
-                            /* Nach 6 Meter */
-                            int E_innen_6Meter = Convert.ToInt32((lux_Nord * 1.3) / 100);
-
-                            /* Berechne Anzahl notwendiger Lichter für Raum */
-
-                            //1. Berechne neues "Rechteck" für Lichtberechnung
-                            int newRoomWidth = Convert.ToInt32(this.tb_RoomWidth.Text) - 4;
-
-                            /* Rechne Lumen/m² in Lux um */
-                            double raumgroesseInm2 = Convert.ToDouble(this.tb_RoomLength.Text) * newRoomWidth;
-
-                            /* Ertelle 2 temp Variablen, um die nachfolgende Berechnung vereinfacht darzustellen */
-                            double tempRoomLength = Convert.ToDouble(this.tb_RoomLength.Text);
-                            double tempRoomWidth = newRoomWidth;
-
-                            double raumgroesseInm2MitRand = raumgroesseInm2 - (tempRoomLength * 0.3) + (tempRoomWidth * 0.3); // 0.3m Abstand zu allen Rändern
-
-
-                            //2. Berechne Anzahl Lichter
-                            Berechne_Parameter_Neuer_Raum(raumgroesseInm2MitRand);
-                        }
-                        localWidth -= 1;
-                    }
-
-                    
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localWidth, lux_Nord);
                 }
             } /* Ende "Nord-Seite" */
+
+            /* Berechne die Ost-Seite */
+            if (this.tb_WindowLengthEast.Text.Length != 0)
+            {
+                /* Feste Annahme: Ostseite durchschnittlich 15.000 Lux */
+                int lux_Ost = 15000; // E(h) außen
+
+                if (this.comboBox3.Text == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                {
+                    /* Maße der Längsseite verwenden */
+                    int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_Ost);
+
+                }
+                if (this.comboBox3.Text == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                {
+                    /* Maße der Breitseite verwenden */
+                    int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localWidth, lux_Ost);
+                }
+            } /* Ende "Ost-Seite" */
+
+            /* Berechne die Süd-Seite */
+            if (this.tb_WindowLengthSouth.Text.Length != 0)
+            {
+                /* Feste Annahme: Südseite durchschnittlich 20.000 Lux */
+                int lux_Sued = 20000; // E(h) außen
+
+                if (this.comboBox4.Text == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                {
+                    /* Maße der Längsseite verwenden */
+                    int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_Sued);
+
+                }
+                if (this.comboBox4.Text == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                {
+                    /* Maße der Breitseite verwenden */
+                    int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localWidth, lux_Sued);
+                }
+            } /* Ende "Süd-Seite" */
+
+            /* Berechne die West-Seite */
+            if (this.tb_WindowLengthWest.Text.Length != 0)
+            {
+                /* Feste Annahme: Westseite durchschnittlich 15.000 Lux */
+                int lux_West = 15000; // E(h) außen
+
+                if (this.comboBox5.Text == "Längsseite") /* Berechne Einflusstiefe Tageslicht in lange Seite des Raumes */
+                {
+                    /* Maße der Längsseite verwenden */
+                    int localLength = Convert.ToInt32(this.tb_RoomLength.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localLength, lux_West);
+
+                }
+                if (this.comboBox5.Text == "Breitseite") /* Berechne Einflusstiefe Tageslicht in breite Seite des Raumes */
+                {
+                    /* Maße der Breitseite verwenden */
+                    int localWidth = Convert.ToInt32(this.tb_RoomWidth.Text);
+                    Berechne_Tiefe_Einfluss_Sonnenlicht(localWidth, lux_West);
+                }
+            } /* Ende "West-Seite" */
+
+            return;
+        }
+
+        private void Berechne_Tiefe_Einfluss_Sonnenlicht(int localWidth, int lux_Nord)
+        {
+            int tempLocalWidth = localWidth;
+            while (localWidth > 0)
+            {
+                if (localWidth == tempLocalWidth)
+                {
+                    /* Direkt am Fenster */
+                    int E_innen_1Meter = Convert.ToInt32((lux_Nord * 11.0) / 100);
+                }
+                if ((localWidth + 1) == tempLocalWidth)
+                {
+                    /* Nach 1 Meter */
+                    int E_innen_1Meter = Convert.ToInt32((lux_Nord * 6.5) / 100);
+                }
+                if ((localWidth + 2) == tempLocalWidth)
+                {
+                    /* Nach 2 Meter */
+                    int E_innen_2Meter = Convert.ToInt32((lux_Nord * 3.9) / 100);
+                }
+                if ((localWidth + 3) == tempLocalWidth)
+                {
+                    /* Nach 3 Meter */
+                    int E_innen_1Meter = Convert.ToInt32((lux_Nord * 2.7) / 100);
+                }
+                if ((localWidth + 4) == tempLocalWidth)
+                {
+                    /* Nach 4 Meter */
+                    int E_innen_4Meter = Convert.ToInt32((lux_Nord * 2.0) / 100);
+                }
+                if ((localWidth + 5) == tempLocalWidth)
+                {
+                    /* Nach 5 Meter */ /* Tageslicht reicht unter 2% nicht aus */
+                    int E_innen_5Meter = Convert.ToInt32((lux_Nord * 1.8) / 100);
+                    Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite();
+                }
+                if ((localWidth + 6) == tempLocalWidth)
+                {
+                    /* Nach 6 Meter */
+                    int E_innen_6Meter = Convert.ToInt32((lux_Nord * 1.3) / 100);
+                    Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite();
+                }
+                localWidth -= 1;
+            }
 
             return;
         }
