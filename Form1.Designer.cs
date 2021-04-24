@@ -40,6 +40,24 @@ namespace Studienarbeit
             this.label36 = new System.Windows.Forms.Label();
             this.btn_ChooseLights = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Calc = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tb_RoomLux = new System.Windows.Forms.TextBox();
+            this.tb_RoomWorkingHeight = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tb_RoomWidth = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_RoomLength = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -86,41 +104,20 @@ namespace Studienarbeit
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.btn_Calc = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tb_RoomLux = new System.Windows.Forms.TextBox();
-            this.tb_RoomWorkingHeight = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tb_RoomHeight = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tb_RoomWidth = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tb_RoomLength = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
             btn_ShowRoom = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -196,6 +193,124 @@ namespace Studienarbeit
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btn_WähleFenster_Click);
+            // 
+            // btn_Calc
+            // 
+            resources.ApplyResources(this.btn_Calc, "btn_Calc");
+            this.btn_Calc.Name = "btn_Calc";
+            this.btn_Calc.UseVisualStyleBackColor = true;
+            this.btn_Calc.Click += new System.EventHandler(this.btn_Calc_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.tb_RoomLux);
+            this.groupBox3.Controls.Add(this.tb_RoomWorkingHeight);
+            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label7);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // tb_RoomLux
+            // 
+            resources.ApplyResources(this.tb_RoomLux, "tb_RoomLux");
+            this.tb_RoomLux.Name = "tb_RoomLux";
+            // 
+            // tb_RoomWorkingHeight
+            // 
+            resources.ApplyResources(this.tb_RoomWorkingHeight, "tb_RoomWorkingHeight");
+            this.tb_RoomWorkingHeight.Name = "tb_RoomWorkingHeight";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            resources.GetString("comboBox1.Items"),
+            resources.GetString("comboBox1.Items1"),
+            resources.GetString("comboBox1.Items2"),
+            resources.GetString("comboBox1.Items3"),
+            resources.GetString("comboBox1.Items4")});
+            resources.ApplyResources(this.comboBox1, "comboBox1");
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.tb_RoomWidth);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.tb_RoomLength);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label2);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // tb_RoomWidth
+            // 
+            resources.ApplyResources(this.tb_RoomWidth, "tb_RoomWidth");
+            this.tb_RoomWidth.Name = "tb_RoomWidth";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // tb_RoomLength
+            // 
+            resources.ApplyResources(this.tb_RoomLength, "tb_RoomLength");
+            this.tb_RoomLength.Name = "tb_RoomLength";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
             // 
             // tabControl1
             // 
@@ -493,135 +608,6 @@ namespace Studienarbeit
             resources.ApplyResources(this.label35, "label35");
             this.label35.Name = "label35";
             // 
-            // btn_Calc
-            // 
-            resources.ApplyResources(this.btn_Calc, "btn_Calc");
-            this.btn_Calc.Name = "btn_Calc";
-            this.btn_Calc.UseVisualStyleBackColor = true;
-            this.btn_Calc.Click += new System.EventHandler(this.btn_Calc_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.tb_RoomLux);
-            this.groupBox3.Controls.Add(this.tb_RoomWorkingHeight);
-            this.groupBox3.Controls.Add(this.comboBox1);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label7);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
-            // 
-            // tb_RoomLux
-            // 
-            resources.ApplyResources(this.tb_RoomLux, "tb_RoomLux");
-            this.tb_RoomLux.Name = "tb_RoomLux";
-            // 
-            // tb_RoomWorkingHeight
-            // 
-            resources.ApplyResources(this.tb_RoomWorkingHeight, "tb_RoomWorkingHeight");
-            this.tb_RoomWorkingHeight.Name = "tb_RoomWorkingHeight";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            resources.GetString("comboBox1.Items"),
-            resources.GetString("comboBox1.Items1"),
-            resources.GetString("comboBox1.Items2"),
-            resources.GetString("comboBox1.Items3"),
-            resources.GetString("comboBox1.Items4")});
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.tb_RoomHeight);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.tb_RoomWidth);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.tb_RoomLength);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
-            // tb_RoomHeight
-            // 
-            resources.ApplyResources(this.tb_RoomHeight, "tb_RoomHeight");
-            this.tb_RoomHeight.Name = "tb_RoomHeight";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // tb_RoomWidth
-            // 
-            resources.ApplyResources(this.tb_RoomWidth, "tb_RoomWidth");
-            this.tb_RoomWidth.Name = "tb_RoomWidth";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // tb_RoomLength
-            // 
-            resources.ApplyResources(this.tb_RoomLength, "tb_RoomLength");
-            this.tb_RoomLength.Name = "tb_RoomLength";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.pictureBox1);
@@ -640,13 +626,6 @@ namespace Studienarbeit
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
-            // button2
-            // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btn_WähleFenster_Click);
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
@@ -661,6 +640,10 @@ namespace Studienarbeit
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -670,10 +653,6 @@ namespace Studienarbeit
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -684,14 +663,11 @@ namespace Studienarbeit
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tb_RoomHeight;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_RoomWidth;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_RoomLength;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label11;
