@@ -124,10 +124,10 @@ namespace Studienarbeit
             double raumtiefeWest = 0.0;
             double raumtiefeOst = 0.0;
 
-            double hoeheFensterNord = Storage.Fenster_Laenge_Nord; // 2.0;
-            double hoeheFensterSued = Storage.Fenster_Laenge_Sued; // 2.0;
-            double hoeheFensterWest = Storage.Fenster_Laenge_West; // 2.0;
-            double hoeheFensterOst = Storage.Fenster_Laenge_Ost;  // 2.0;
+            double hoeheFensterNord = Storage.Fenster_Laenge_Nord;
+            double hoeheFensterSued = Storage.Fenster_Laenge_Sued;
+            double hoeheFensterWest = Storage.Fenster_Laenge_West;
+            double hoeheFensterOst = Storage.Fenster_Laenge_Ost;
 
             if (0 != Storage.Fenster_Anzahl_Nord)
             {
@@ -177,6 +177,21 @@ namespace Studienarbeit
                     /* bei "Überlappung" soll 0 verwendet werden */
                     neuerRaum = (laengeRaum - neuelaengeRaum) * (breiteRaum - neuebreiteRaum);
                 }
+
+                /* gibt negative Werte aus: */
+                //if ((neuebreiteRaum != 0) && (neuelaengeRaum != 0))
+                //{
+                //    /* bei "Überlappung" soll 0 verwendet werden */
+                //    if((laengeRaum - neuelaengeRaum) <= 0) { neuerRaum = breiteRaum * 1; }
+                //    if ((breiteRaum - neuebreiteRaum) <= 0) { neuerRaum = laengeRaum * 1; }
+                //    else { neuerRaum = (laengeRaum - neuelaengeRaum) * (breiteRaum - neuebreiteRaum); }
+                //}
+                //else
+                //{
+                //    if(neuebreiteRaum <= 0) { neuebreiteRaum = 1; }
+                //    if(neuelaengeRaum <= 0) { neuelaengeRaum = 1; }
+                //    neuerRaum = (laengeRaum - neuelaengeRaum) * (breiteRaum - neuebreiteRaum);
+                //}
 
             }
             else if (Storage.FensterSeiteNorden.Equals("Breitseite"))

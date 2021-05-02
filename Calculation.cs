@@ -16,8 +16,7 @@ namespace Studienarbeit
         {
             /* Berechne die mittlere Leuchtdichte im Bereich */
             int leuchtdichte = Convert.ToInt32((Reflexionswert * Beleuchtungsstärke) / Math.PI);
-            Console.WriteLine(leuchtdichte)
-;
+
             return leuchtdichte;
         }
 
@@ -35,7 +34,7 @@ namespace Studienarbeit
         /* Global verwendete Parameter speichern */
         public Storage()
         {
-            /**/
+            /* Konstruktor */
         }
 
         public static string Leuchtmittel_Typ = "";
