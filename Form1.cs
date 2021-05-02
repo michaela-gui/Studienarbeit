@@ -21,8 +21,7 @@ namespace Studienarbeit
         /******************* Click-Methoden *******************************************/
         private void btn_Calc_Click(object sender, EventArgs e)
         {
-            //Berechne_Parameter_Nach_Statischen_Angaben();
-            
+            Berechne_Lichtmenge_Ohne_Fenster();
 
             return;
         }
@@ -303,11 +302,8 @@ namespace Studienarbeit
             if ((Storage.Fenster_Anzahl_Nord != 0) || (Storage.Fenster_Anzahl_Ost != 0) || (Storage.Fenster_Anzahl_Sued != 0) || (Storage.Fenster_Anzahl_West != 0))
             {
                 /* Berechne Tageslicht-Quotient des Raumes */
-                //Berechne_Fenster();
                 Berechne_Lichtmenge_Mit_Fenster();
             }
-
-            //Berechne_Fenster_NordundSued_an_Laengsseite(); /* temp */
 
             return;
         }
@@ -529,6 +525,26 @@ namespace Studienarbeit
 
         /************** Berechne Helligkeit zwischen 2 Fenstern N und S *******************/
 
+        void Berechne_Lichtmenge_Ohne_Fenster()
+        {
+            /* Berechne Anforderung an Lampen ohne Einbezug der Fenster */
+            double gesamtraum = 0.0;
+            double neuerRaum = 0.0;
+
+
+            /* Wähle Konstanten für Raum */
+            int raumBeleuchtungsstärke = Berechne_Parameter_Nach_Statischen_Angaben();
+            
+            /* 1. Berechne Raumgroesse */
+            neuerRaum = Berechne_Raumgroesse();
+            
+            /* 3. Berechne Leuchten und Leistung, Ausgabe auf UI */
+            Berechne_Lichtmenge_AnzahlLeuchten_LeistungLeuchten(neuerRaum);
+
+            return;
+        }
+
+
         double Berechne_Raumgroesse()
         {
             double gesamtraum, laengeRaum, breiteRaum = 0.0;
@@ -595,14 +611,6 @@ namespace Studienarbeit
                 neuebreiteRaum += raumtiefeWest;
                 neuebreiteRaum += raumtiefeOst;
 
-                //if (neuelaengeRaum != 0)
-                //{
-                //    neuerRaum = (laengeRaum - neuelaengeRaum) * breiteRaum;
-                //}
-                //if (neuebreiteRaum != 0)
-                //{
-                //    neuerRaum = laengeRaum * (breiteRaum - neuebreiteRaum);
-                //}
                 if ((neuebreiteRaum != 0) && (neuelaengeRaum != 0))
                 {
                     /* bei "Überlappung" soll 0 verwendet werden */
@@ -618,16 +626,9 @@ namespace Studienarbeit
                 neuelaengeRaum += raumtiefeWest;
                 neuelaengeRaum += raumtiefeOst;
 
-                //if (neuelaengeRaum != 0)
-                //{
-                //    neuerRaum = (laengeRaum - neuelaengeRaum) * breiteRaum;
-                //}
-                //if (neuebreiteRaum != 0)
-                //{
-                //    neuerRaum = laengeRaum * (breiteRaum - neuebreiteRaum);
-                //}
                 if ((neuebreiteRaum != 0) && (neuelaengeRaum != 0))
                 {
+                    /* bei "Überlappung" soll 0 verwendet werden */
                     neuerRaum = (laengeRaum - neuelaengeRaum) * (breiteRaum - neuebreiteRaum);
                 }
             }
@@ -670,7 +671,7 @@ namespace Studienarbeit
             /* 2. Helligkeit durch Fenster */
             neuerRaum = Berechne_Helligkeitseinfluss_Durch_Fenster(neuerRaum, Convert.ToDouble(this.tb_RoomLength.Text), Convert.ToDouble(this.tb_RoomWidth.Text));
 
-            /* Berechne Leuchten und Leistung, Ausgabe auf UI */
+            /* 3. Berechne Leuchten und Leistung, Ausgabe auf UI */
             Berechne_Lichtmenge_AnzahlLeuchten_LeistungLeuchten(neuerRaum);
 
 
