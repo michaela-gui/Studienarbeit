@@ -132,22 +132,34 @@ namespace Studienarbeit
             if (0 != Storage.Fenster_Anzahl_Nord)
             {
                 /* BERECHNE LICHTEINFLUSS-TIEFE AUF NORDSEITE */
-                raumtiefeNord = hoeheFensterNord / 2.0; /* Lichteinfluss Tiefe Nordseite */
+                //raumtiefeNord = hoeheFensterNord / 2.0; /* Lichteinfluss Tiefe Nordseite */
+                if (Storage.FensterSeiteNorden.Equals("Längsseite")) { raumtiefeNord = (laengeRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(laengeRaum, 10000)); }
+                if (Storage.FensterSeiteNorden.Equals("Breitseite")) { raumtiefeNord = (breiteRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(breiteRaum, 10000)); }
+                Console.WriteLine("HIER" + raumtiefeNord);
             }
             if (0 != Storage.Fenster_Anzahl_Sued)
             {
                 /* BERECHNE LICHTEINFLUSS-TIEFE AUF SUEDSEITE */
-                raumtiefeSued = hoeheFensterSued / 2.0;
+                //raumtiefeSued = hoeheFensterSued / 2.0;
+                if (Storage.FensterSeiteNorden.Equals("Längsseite")) { raumtiefeSued = (laengeRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(laengeRaum, 10000)); }
+                if (Storage.FensterSeiteNorden.Equals("Breitseite")) { raumtiefeSued = (breiteRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(breiteRaum, 10000)); }
+                Console.WriteLine("HIER" + raumtiefeSued);
             }
             if (0 != Storage.Fenster_Anzahl_West)
             {
                 /* BERECHNE LICHTEINFLUSS-TIEFE AUF WESTSEITE */
-                raumtiefeWest = hoeheFensterWest / 2.0;
+                //raumtiefeWest = hoeheFensterWest / 2.0;
+                if (Storage.FensterSeiteNorden.Equals("Breitseite")) { raumtiefeWest = (laengeRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(laengeRaum, 10000)); }
+                if (Storage.FensterSeiteNorden.Equals("Längsseite")) { raumtiefeWest = (breiteRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(breiteRaum, 10000)); }
+                Console.WriteLine("HIER" + raumtiefeWest);
             }
             if (0 != Storage.Fenster_Anzahl_Ost)
             {
                 /* BERECHNE LICHTEINFLUSS-TIEFE AUF OSTSEITE */
-                raumtiefeOst = hoeheFensterOst / 2.0;
+                //raumtiefeOst = hoeheFensterOst / 2.0;
+                if (Storage.FensterSeiteNorden.Equals("Breitseite")) { raumtiefeOst = (laengeRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(laengeRaum, 10000)); }
+                if (Storage.FensterSeiteNorden.Equals("Längsseite")) { raumtiefeOst = (breiteRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(breiteRaum, 10000)); }
+                Console.WriteLine(raumtiefeOst);
             }
 
             /* Addiere alle errechneten Seiten */
@@ -176,6 +188,16 @@ namespace Studienarbeit
                 {
                     /* bei "Überlappung" soll 0 verwendet werden */
                     neuerRaum = (laengeRaum - neuelaengeRaum) * (breiteRaum - neuebreiteRaum);
+                }
+                else if(neuebreiteRaum != 0)
+                {
+                    /* kein Fenster in der Breite vorhanden */
+                    neuerRaum = (laengeRaum - neuelaengeRaum) * breiteRaum;
+                }
+                else if(neuelaengeRaum != 0)
+                {
+                    /* kein Fenster in der Länge vorhanden */
+                    neuerRaum = (breiteRaum - neuebreiteRaum) * laengeRaum;
                 }
 
                 /* gibt negative Werte aus: */
@@ -277,6 +299,71 @@ namespace Studienarbeit
             }
 
             return lux;
+        }
+
+        private double Berechne_Tiefe_Einfluss_Sonnenlicht(double localWidth, int lux_Nord)
+        {
+            double tempLocalWidth = localWidth;
+            while (localWidth > 0)
+            {
+                if (localWidth == tempLocalWidth)
+                {
+                    /* Direkt am Fenster */
+                    int E_innen_0Meter = Convert.ToInt32((lux_Nord * 11.0) / 100);
+                }
+                if ((localWidth + 1) == tempLocalWidth)
+                {
+                    /* Nach 1 Meter */
+                    int E_innen_1Meter = Convert.ToInt32((lux_Nord * 6.5) / 100);
+                }
+                if ((localWidth + 2) == tempLocalWidth)
+                {
+                    /* Nach 2 Meter */
+                    int E_innen_2Meter = Convert.ToInt32((lux_Nord * 3.9) / 100);
+                    if(E_innen_2Meter > Storage.Raum_Küche_Lichtmenge)
+                    {
+                        /* Beleuchtung ab hier einsetzen */
+                        return localWidth; /* return neuer Wert für Breite bzw. Länge */
+                    }
+                }
+                if ((localWidth + 3) == tempLocalWidth)
+                {
+                    /* Nach 3 Meter */
+                    int E_innen_3Meter = Convert.ToInt32((lux_Nord * 2.7) / 100);
+                    if (E_innen_3Meter > Storage.Raum_Küche_Lichtmenge)
+                    {
+                        /* Beleuchtung ab hier einsetzen */
+                        return localWidth; /* return neuer Wert für Breite bzw. Länge */
+                    }
+                }
+                if ((localWidth + 4) == tempLocalWidth)
+                {
+                    /* Nach 4 Meter */
+                    int E_innen_4Meter = Convert.ToInt32((lux_Nord * 2.0) / 100);
+                    if (E_innen_4Meter > Storage.Raum_Küche_Lichtmenge)
+                    {
+                        /* Beleuchtung ab hier einsetzen */
+                        return localWidth; /* return neuer Wert für Breite bzw. Länge */
+                    }
+                }
+                if ((localWidth + 5) == tempLocalWidth)
+                {
+                    /* Nach 5 Meter */ /* Tageslicht reicht unter 2% nicht aus */
+                    int E_innen_5Meter = Convert.ToInt32((lux_Nord * 1.8) / 100);
+                    //Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite();
+                    return localWidth; /* return neuer Wert für Breite bzw. Länge */
+                }
+                if ((localWidth + 6) == tempLocalWidth)
+                {
+                    /* Nach 6 Meter */
+                    int E_innen_6Meter = Convert.ToInt32((lux_Nord * 1.3) / 100);
+                    //Berechne_Neue_Anzahl_ungenuegend_Tageslicht_BreiteSeite();
+                    return localWidth; /* return neuer Wert für Breite bzw. Länge */
+                }
+                localWidth -= 1;
+            }
+
+            return 0; /* return alter Wert für Breite bzw. Länge, da offensichtlich genug (unter 5 Metern) */
         }
     }
 }
