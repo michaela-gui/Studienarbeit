@@ -131,35 +131,27 @@ namespace Studienarbeit
 
             if (0 != Storage.Fenster_Anzahl_Nord)
             {
-                /* BERECHNE LICHTEINFLUSS-TIEFE AUF NORDSEITE */
-                //raumtiefeNord = hoeheFensterNord / 2.0; /* Lichteinfluss Tiefe Nordseite */
+                /* Berechne Lichteinfluss-Tiefe auf Nord-Seite */
                 if (Storage.FensterSeiteNorden.Equals("Längsseite")) { raumtiefeNord = (laengeRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(laengeRaum, 10000)); }
                 if (Storage.FensterSeiteNorden.Equals("Breitseite")) { raumtiefeNord = (breiteRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(breiteRaum, 10000)); }
-                Console.WriteLine("HIER" + raumtiefeNord);
             }
             if (0 != Storage.Fenster_Anzahl_Sued)
             {
-                /* BERECHNE LICHTEINFLUSS-TIEFE AUF SUEDSEITE */
-                //raumtiefeSued = hoeheFensterSued / 2.0;
+                /* Berechne Lichteinfluss-Tiefe auf Sued-Seite */
                 if (Storage.FensterSeiteNorden.Equals("Längsseite")) { raumtiefeSued = (laengeRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(laengeRaum, 10000)); }
                 if (Storage.FensterSeiteNorden.Equals("Breitseite")) { raumtiefeSued = (breiteRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(breiteRaum, 10000)); }
-                Console.WriteLine("HIER" + raumtiefeSued);
             }
             if (0 != Storage.Fenster_Anzahl_West)
             {
-                /* BERECHNE LICHTEINFLUSS-TIEFE AUF WESTSEITE */
-                //raumtiefeWest = hoeheFensterWest / 2.0;
+                /* Berechne Lichteinfluss-Tiefe auf West-Seite */
                 if (Storage.FensterSeiteNorden.Equals("Breitseite")) { raumtiefeWest = (laengeRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(laengeRaum, 10000)); }
                 if (Storage.FensterSeiteNorden.Equals("Längsseite")) { raumtiefeWest = (breiteRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(breiteRaum, 10000)); }
-                Console.WriteLine("HIER" + raumtiefeWest);
             }
             if (0 != Storage.Fenster_Anzahl_Ost)
             {
-                /* BERECHNE LICHTEINFLUSS-TIEFE AUF OSTSEITE */
-                //raumtiefeOst = hoeheFensterOst / 2.0;
+                /* Berechne Lichteinfluss-Tiefe auf Ost-Seite */
                 if (Storage.FensterSeiteNorden.Equals("Breitseite")) { raumtiefeOst = (laengeRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(laengeRaum, 10000)); }
                 if (Storage.FensterSeiteNorden.Equals("Längsseite")) { raumtiefeOst = (breiteRaum - Berechne_Tiefe_Einfluss_Sonnenlicht(breiteRaum, 10000)); }
-                Console.WriteLine(raumtiefeOst);
             }
 
             /* Addiere alle errechneten Seiten */
@@ -260,16 +252,16 @@ namespace Studienarbeit
             double neuerRaum = 0.0;
             
 
-            /* Wähle Konstanten für Raum */
+            /* 1. Wähle Konstanten für Raum */
             int raumBeleuchtungsstärke = Berechne_Parameter_Nach_Statischen_Angaben();
 
-            /* 1. Berechne Raumgroesse */
+            /* 2. Berechne Raumgroesse */
             gesamtraum = Berechne_Raumgroesse();
 
-            /* 2. Helligkeit durch Fenster */
+            /* 3. Helligkeit durch Fenster */
             neuerRaum = Berechne_Helligkeitseinfluss_Durch_Fenster(neuerRaum, Convert.ToDouble(this.tb_RoomLength.Text), Convert.ToDouble(this.tb_RoomWidth.Text));
 
-            /* 3. Berechne Leuchten und Leistung, Ausgabe auf UI */
+            /* 4. Berechne Leuchten und Leistung, Ausgabe auf GUI */
             Berechne_Lichtmenge_AnzahlLeuchten_LeistungLeuchten(neuerRaum);
 
 
