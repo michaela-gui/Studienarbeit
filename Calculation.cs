@@ -37,16 +37,18 @@ namespace Studienarbeit
             /* Konstruktor */
         }
 
-        public static string Leuchtmittel_Typ = "";
-        public static int Leuchtmittel_Farbwiedergabe = 0; // in Ra
-        public static int Leuchtmittel_Watt = 0; // in Watt
-        public static int Leuchtmittel_Nutzlichtstrom = 0; // in Lumen
-        public static int Leuchtmittel_Abstrahlwinkel = 0; // in Grad
+        public static string Leuchtmittel_Typ           = "";
+        public static int Leuchtmittel_Farbwiedergabe   = 0; // in Ra
+        public static int Leuchtmittel_Watt             = 0; // in Watt
+        public static int Leuchtmittel_Nutzlichtstrom   = 0; // in Lumen
+        public static int Leuchtmittel_Abstrahlwinkel   = 0; // in Grad
 
-        public static int Raum_Küche_Lichtmenge = 300; // in Lux
-        public static int Raum_Arbeitsplatz_Lichtmenge = 500; // in Lux
-        public static int Raum_Arbeitsplatz_direktesLichtmenge = 300; // in Lux
-        public static int Raum_Arbeitsplatz_weiteresUmfeld_Lichtmenge = 150; // in Lux
+        public static int Raum_Küche_Lichtmenge                         = 300; // in Lux
+        public static int Raum_Arbeitsplatz_Lichtmenge                  = 500; // in Lux
+
+
+        public static int Raum_Arbeitsplatz_direktesLichtmenge          = 300; // in Lux
+        public static int Raum_Arbeitsplatz_weiteresUmfeld_Lichtmenge   = 150; // in Lux
 
         public static int Fenster_Anzahl_Nord = 0;
         public static int Fenster_Anzahl_Ost = 0;

@@ -237,17 +237,17 @@ namespace Studienarbeit
         void Berechne_Lichtmenge_AnzahlLeuchten_LeistungLeuchten(double neuerRaum)
         {
             Calculation myCalc = new Calculation();
-            double reflexionOberfläche = 0.6; /* soll von Param kommen */
-            int raumBeleuchtungsstärke = Storage.Raum_Küche_Lichtmenge; /* soll von Param kommen */
+            double reflexionOberfläche = 0.6; 
+            int raumBeleuchtungsstärke = Storage.Raum_Küche_Lichtmenge; 
 
-            /* 3. Berechne notwendige Lichtmenge im Raum */
+            /* 1. Berechne notwendige Lichtmenge im Raum */
             int leuchtdichte = myCalc.LeuchtdichteBerechnen(reflexionOberfläche, raumBeleuchtungsstärke);
 
-            /* 4. Berechne notwendige Anzahl Lampen im Raum */
+            /* 2. Berechne notwendige Anzahl Lampen im Raum */
             int anzahlLeuchten = Berechne_Leuchtdichte_Im_Raum(neuerRaum);
             this.tb_RoomCountLights.Text = anzahlLeuchten.ToString();
 
-            /* 5. Berechne notwendige Leistung im Raum */
+            /* 3. Berechne notwendige Leistung im Raum */
             this.tb_RoomCountPower.Text = myCalc.LeistungAllerLeuchtenBerechnen(Storage.Leuchtmittel_Watt, anzahlLeuchten).ToString();
 
             return;
@@ -364,6 +364,20 @@ namespace Studienarbeit
             }
 
             return 0; /* return alter Wert für Breite bzw. Länge, da offensichtlich genug (unter 5 Metern) */
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.Equals("Küche"))
+            {
+                /* Setze Lichtmenge im Raum auf die GUI */
+                this.tb_RoomLux.Text = Storage.Raum_Küche_Lichtmenge.ToString();
+            }
+            if (comboBox1.SelectedItem.Equals("Arbeitszimmer"))
+            {
+                /* Setze Lichtmenge im Raum auf die GUI */
+                this.tb_RoomLux.Text = Storage.Raum_Arbeitsplatz_Lichtmenge.ToString();
+            }
         }
     }
 }

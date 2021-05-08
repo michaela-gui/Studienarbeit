@@ -72,13 +72,13 @@ namespace Studienarbeit
 
         private void cb_Waehle_Leuchte_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.Text == "Glühlampe E27")
+            if(cb_AuswahlLeuchten.Text == "Glühlampe E27")
             {
                 /* Zeige Parameter auf Gui2 */
                 Setze_Parameter_Gluehlampe();
             }
 
-            if (comboBox1.Text == "LED Einbaustrahler")
+            if (cb_AuswahlLeuchten.Text == "LED Einbaustrahler")
             {
                 /* Zeige Parameter auf Gui2 */
                 Setze_Parameter_LED_Einbaustrahler();
@@ -88,25 +88,27 @@ namespace Studienarbeit
         private void btn_Uebernehmen_Click(object sender, EventArgs e)
         {
             /* Kopiere Parameter für Gui1 */
-            if (comboBox1.Text == "Glühlampe E27")
+            if (cb_AuswahlLeuchten.Text == "Glühlampe E27")
             {
-                Storage.Leuchtmittel_Typ = "Glühlampe";
+                Storage.Leuchtmittel_Typ            = "Glühlampe";
                 Storage.Leuchtmittel_Farbwiedergabe = 100;
-                Storage.Leuchtmittel_Watt = 8;
+                Storage.Leuchtmittel_Watt           = 8;
                 Storage.Leuchtmittel_Nutzlichtstrom = 40;
                 Storage.Leuchtmittel_Abstrahlwinkel = 120;
             }
 
-            if (comboBox1.Text == "LED Einbaustrahler")
+            if (cb_AuswahlLeuchten.Text == "LED Einbaustrahler")
             {
-                Storage.Leuchtmittel_Typ = "LED";
+                Storage.Leuchtmittel_Typ            = "LED";
                 Storage.Leuchtmittel_Farbwiedergabe = 80;
-                Storage.Leuchtmittel_Watt = 6;
+                Storage.Leuchtmittel_Watt           = 6;
                 Storage.Leuchtmittel_Nutzlichtstrom = 640;
                 Storage.Leuchtmittel_Abstrahlwinkel = 38;
             }
 
             this.Close();
+
+            return;
         }
 
         private void btn_Abbrechen_Click(object sender, EventArgs e)

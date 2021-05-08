@@ -29,7 +29,7 @@ namespace Studienarbeit
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_AuswahlLeuchten = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
@@ -62,17 +62,17 @@ namespace Studienarbeit
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cb_AuswahlLeuchten.FormattingEnabled = true;
+            this.cb_AuswahlLeuchten.Items.AddRange(new object[] {
             "Glühlampe E27",
             "LED Einbaustrahler",
             "Lampe 3"});
-            this.comboBox1.Location = new System.Drawing.Point(19, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "Wähle Lampe / Leuchte";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.cb_Waehle_Leuchte_SelectedIndexChanged);
+            this.cb_AuswahlLeuchten.Location = new System.Drawing.Point(19, 33);
+            this.cb_AuswahlLeuchten.Name = "comboBox1";
+            this.cb_AuswahlLeuchten.Size = new System.Drawing.Size(160, 21);
+            this.cb_AuswahlLeuchten.TabIndex = 0;
+            this.cb_AuswahlLeuchten.Text = "Wähle Lampe / Leuchte";
+            this.cb_AuswahlLeuchten.SelectedIndexChanged += new System.EventHandler(this.cb_Waehle_Leuchte_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -317,7 +317,7 @@ namespace Studienarbeit
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cb_AuswahlLeuchten);
             this.Name = "LampenWahl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LampenWahl";
@@ -331,7 +331,7 @@ namespace Studienarbeit
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_AuswahlLeuchten;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
