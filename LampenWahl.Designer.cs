@@ -41,34 +41,33 @@ namespace Studienarbeit
             this.label9 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cb_AuswahlLeuchten
             // 
             this.cb_AuswahlLeuchten.FormattingEnabled = true;
             this.cb_AuswahlLeuchten.Items.AddRange(new object[] {
             "Glühlampe E27",
-            "LED Einbaustrahler",
-            "Lampe 3"});
+            "LED Einbaustrahler"});
             this.cb_AuswahlLeuchten.Location = new System.Drawing.Point(19, 33);
-            this.cb_AuswahlLeuchten.Name = "comboBox1";
+            this.cb_AuswahlLeuchten.Name = "cb_AuswahlLeuchten";
             this.cb_AuswahlLeuchten.Size = new System.Drawing.Size(160, 21);
             this.cb_AuswahlLeuchten.TabIndex = 0;
             this.cb_AuswahlLeuchten.Text = "Wähle Lampe / Leuchte";
@@ -185,6 +184,14 @@ namespace Studienarbeit
             this.label8.TabIndex = 2;
             this.label8.Text = "Nutzlichtstrom";
             // 
+            // richTextBox10
+            // 
+            this.richTextBox10.Location = new System.Drawing.Point(193, 55);
+            this.richTextBox10.Name = "richTextBox10";
+            this.richTextBox10.Size = new System.Drawing.Size(169, 24);
+            this.richTextBox10.TabIndex = 3;
+            this.richTextBox10.Text = "";
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(193, 25);
@@ -237,6 +244,15 @@ namespace Studienarbeit
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Leuchtfarbe";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(23, 58);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Artikel-Nummer";
             // 
             // label2
             // 
@@ -291,23 +307,6 @@ namespace Studienarbeit
             this.button2.Text = "Übernehmen";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.btn_Uebernehmen_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 58);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Artikel-Nummer";
-            // 
-            // richTextBox10
-            // 
-            this.richTextBox10.Location = new System.Drawing.Point(193, 55);
-            this.richTextBox10.Name = "richTextBox10";
-            this.richTextBox10.Size = new System.Drawing.Size(169, 24);
-            this.richTextBox10.TabIndex = 3;
-            this.richTextBox10.Text = "";
             // 
             // LampenWahl
             // 
