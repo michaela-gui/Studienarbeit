@@ -184,29 +184,13 @@ namespace Studienarbeit
                 else if(neuebreiteRaum != 0)
                 {
                     /* kein Fenster in der Breite vorhanden */
-                    neuerRaum = (laengeRaum - neuelaengeRaum) * breiteRaum;
+                    neuerRaum = (breiteRaum - neuebreiteRaum) * laengeRaum;
                 }
                 else if(neuelaengeRaum != 0)
                 {
                     /* kein Fenster in der Länge vorhanden */
-                    neuerRaum = (breiteRaum - neuebreiteRaum) * laengeRaum;
+                    neuerRaum = (laengeRaum - neuelaengeRaum) * breiteRaum;
                 }
-
-                /* gibt negative Werte aus: */
-                //if ((neuebreiteRaum != 0) && (neuelaengeRaum != 0))
-                //{
-                //    /* bei "Überlappung" soll 0 verwendet werden */
-                //    if((laengeRaum - neuelaengeRaum) <= 0) { neuerRaum = breiteRaum * 1; }
-                //    if ((breiteRaum - neuebreiteRaum) <= 0) { neuerRaum = laengeRaum * 1; }
-                //    else { neuerRaum = (laengeRaum - neuelaengeRaum) * (breiteRaum - neuebreiteRaum); }
-                //}
-                //else
-                //{
-                //    if(neuebreiteRaum <= 0) { neuebreiteRaum = 1; }
-                //    if(neuelaengeRaum <= 0) { neuelaengeRaum = 1; }
-                //    neuerRaum = (laengeRaum - neuelaengeRaum) * (breiteRaum - neuebreiteRaum);
-                //}
-
             }
             else if (Storage.FensterSeiteNorden.Equals("Breitseite"))
             {
@@ -220,6 +204,16 @@ namespace Studienarbeit
                 {
                     /* bei "Überlappung" soll 0 verwendet werden */
                     neuerRaum = (laengeRaum - neuelaengeRaum) * (breiteRaum - neuebreiteRaum);
+                }
+                else if (neuebreiteRaum != 0)
+                {
+                    /* kein Fenster in der Breite vorhanden */
+                    neuerRaum = (breiteRaum - neuebreiteRaum) * laengeRaum;
+                }
+                else if (neuelaengeRaum != 0)
+                {
+                    /* kein Fenster in der Länge vorhanden */
+                    neuerRaum = (laengeRaum - neuelaengeRaum) * breiteRaum;
                 }
             }
 

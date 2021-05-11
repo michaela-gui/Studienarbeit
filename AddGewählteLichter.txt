@@ -1,0 +1,18 @@
+LED: https://relux.com/de/search/luminaires/ansell/all___amenity_-_reef_l_abc42980f1a358f0/DE/#art=all___areeledd_-_cw&var=---&config=0001&lamp=13-1200-_-1-_-_-4000k-_
+Systemleistung 	5W
+Leuchtenlichtausbeute	97.2 lm/W
+System Lichtstrom	486lm
+Lichtfarbe	840
+Farbtemperatur	4000K
+
+Osram LED-als Glühlampen Ersatz https://www.osram.de/ecat/PARATHOM%20CLASSIC%20P%20DIM-Professional%20LED-Lampen%20mit%20klassischen%20Kolbenformen-LED-Lampen-Lampen-Digital%20Systems/de/de/GPS01_3081959/ZMP_3435140/
+Farbwiedergabeindex 	Ra 80
+sehr wenig Information auf Datenblatt von Webseite
+
+Paulmann LED Deckenleuchte https://de.paulmann.com/innenleuchten/deckenleuchten/weitere-deckenleuchten/led-deckenleuchte-argun-1-flammig-4-8w-weiss-matt-alu-gebuerstet/79708
+Farbtemperatur 	3000K
+Dimmbar mit normalem Lichtschalter
+Lichtstrom 356 lm
+Leistung mit Glühlampe von 40W vergleichbar
+Watt 4.8 W
+Schwenkbereich 50W
